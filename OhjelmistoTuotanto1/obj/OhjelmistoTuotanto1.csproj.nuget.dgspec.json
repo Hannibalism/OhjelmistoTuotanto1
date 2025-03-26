@@ -83,6 +83,10 @@
               "target": "Package",
               "version": "[8.0.10, )",
               "autoReferenced": true
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             }
           },
           "imports": [
@@ -126,6 +130,10 @@
               "target": "Package",
               "version": "[8.0.10, )",
               "autoReferenced": true
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             }
           },
           "imports": [
@@ -169,6 +177,10 @@
               "target": "Package",
               "version": "[8.0.10, )",
               "autoReferenced": true
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             }
           },
           "imports": [
@@ -207,6 +219,10 @@
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[8.0.82, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             }
           },
           "imports": [

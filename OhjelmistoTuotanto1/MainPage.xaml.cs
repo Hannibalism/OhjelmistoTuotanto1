@@ -1,4 +1,6 @@
-﻿namespace OhjelmistoTuotanto1;
+﻿using MySqlConnector;
+
+namespace OhjelmistoTuotanto1;
 
 public partial class MainPage : ContentPage
 {
@@ -20,5 +22,19 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+    private async void OnDatabaseClicked(object sender, EventArgs e)
+    {
+        DatabaseConnection dbc = new DatabaseConnection();
+        try
+        {
+            var conn = dbc._getConnection();
+            conn.Open();
+            await DisplayAlert("Onnistui", "Tietokanta yhteys aukesi", "OK"); 
+        }
+        catch (MySqlException ex)
+        {
+            await DisplayAlert("Failure", ex.Message, "OK");
+        }
+    }
 }
 

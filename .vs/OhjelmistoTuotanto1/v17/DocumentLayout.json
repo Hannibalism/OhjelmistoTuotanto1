@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\ohjelmistotuotanto1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\ohjelmistotuotanto1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\vm\\documents\\ohjelmistotuotanto1\\ohjelmistotuotanto1\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\App.xaml.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\App.xaml.cs",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:48:25.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\AppShell.xaml.cs",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\AppShell.xaml.cs",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:48:24.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MainPage.xaml",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MainPage.xaml",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-26T17:32:14.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MainPage.xaml.cs",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\MainPage.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAkwB0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:32:05.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\MauiProgram.cs",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:28:52.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseConnection.cs",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\DatabaseConnection.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\DatabaseConnection.cs",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\DatabaseConnection.cs",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\DatabaseConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T17:17:43.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OhjelmistoTuotanto1",
+              "DocumentMoniker": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+              "ToolTip": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-26T17:16:48.063Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

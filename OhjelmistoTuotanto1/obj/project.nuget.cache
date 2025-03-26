@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hvr8X/qp5qA=",
+  "dgSpecHash": "gHvYDwyjLUw=",
   "success": true,
   "projectFilePath": "C:\\Users\\VM\\Documents\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\VM\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.10\\microsoft.net.illink.tasks.8.0.10.nupkg.sha512",
     "C:\\Users\\VM\\.nuget\\packages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\VM\\.nuget\\packages\\microsoft.windowsappsdk\\1.5.240627000\\microsoft.windowsappsdk.1.5.240627000.nupkg.sha512",
+    "C:\\Users\\VM\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
     "C:\\Users\\VM\\.nuget\\packages\\xamarin.android.glide\\4.15.1.2\\xamarin.android.glide.4.15.1.2.nupkg.sha512",
     "C:\\Users\\VM\\.nuget\\packages\\xamarin.android.glide.annotations\\4.15.1.2\\xamarin.android.glide.annotations.4.15.1.2.nupkg.sha512",
     "C:\\Users\\VM\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.15.1.2\\xamarin.android.glide.disklrucache.4.15.1.2.nupkg.sha512",

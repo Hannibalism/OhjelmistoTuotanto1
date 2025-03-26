@@ -30,6 +30,12 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+                <Button
+                    x:Name="DatabseBtn"
+                    Text="Connect to database"
+                    SemanticProperties.Hint="Connects to database"
+                    Clicked="OnDatabaseClicked"
+                    HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 
