@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.LisaysSivu"
+             Title="LisaysSivu">
+    <VerticalStackLayout>
+        <Label 
+            Text="Mökkien lisäys"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="Mökkinimi"
+            Placeholder="Mökkinimi"
+        />
+        <Entry
+            x:Name="Postinro"
+            Placeholder="Mökin postinro"
+        />
+        <Entry
+            x:Name="Katuosoite"
+            Placeholder="Mökin katuosoite"
+        />
+        <Entry
+            x:Name="Hinta"
+            Placeholder="Mökin hinta"
+        />
+        <Entry
+            x:Name="Kuvaus"
+            Placeholder="Kuvaus mökistä"
+        />
+        <Entry
+            x:Name="Varustelu"
+            Placeholder="Mökin varustelut"
+        />
+        <Button
+            x:Name="Lisays"
+            Clicked="LisaysNappi"
+            Text="Yhdistä ja lisää tietokantaan"
+        />
+    </VerticalStackLayout>
+</ContentPage>

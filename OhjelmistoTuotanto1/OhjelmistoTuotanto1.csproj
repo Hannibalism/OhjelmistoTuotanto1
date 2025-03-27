@@ -63,4 +63,10 @@
 		<PackageReference Include="MySqlConnector" Version="2.2.5" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="LisaysSivu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

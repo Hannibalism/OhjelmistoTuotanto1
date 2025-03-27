@@ -25,10 +25,10 @@
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                x:Name="Mokki_lisays"
+                Text="Mökkien Lisäys" 
+                SemanticProperties.Hint="Vie mökkienlisäys sivulle"
+                Clicked="Mokkilisays"
                 HorizontalOptions="Fill" />
                 <Button
                     x:Name="DatabseBtn"
