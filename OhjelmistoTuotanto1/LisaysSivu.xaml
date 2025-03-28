@@ -29,6 +29,10 @@
             Placeholder="Kuvaus mökistä"
         />
         <Entry
+            x:Name="Alue"
+            Placeholder="Alue"
+        />
+        <Entry
             x:Name="Varustelu"
             Placeholder="Mökin varustelut"
         />
