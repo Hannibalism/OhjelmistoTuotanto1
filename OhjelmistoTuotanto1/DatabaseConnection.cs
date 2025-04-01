@@ -8,6 +8,7 @@ public class DatabaseConnection
     private readonly string uid = "root";
     private readonly string pwd = "Ruutti";
     private readonly string database = "vn";
+    
 
     public DatabaseConnection()
     {
