@@ -1,4 +1,6 @@
+using Microsoft.Maui.Controls;
 using MySqlConnector;
+using Org.BouncyCastle.Asn1.Cms;
 using System.Data.Common;
 using Windows.Media.AppBroadcasting;
 
@@ -11,48 +13,86 @@ public partial class LisaysSivu : ContentPage
         InitializeComponent();
     }
 
-    //Luo yhteyden ja lisää tietoa tietokantaan, lisää alueen alue tauluun, tämän jälkeen postinumeron postitauluun ja ottaa toimipaikan alueesta.
-    //sitten lisää loput tiedot mökki tauluun ja ottaa alue_id:n ja postinumeron alueen perusteella ja lisää loput tiedot.
-    //Toistaiseksi kaatuu jos duplicate tietoa koitetaan lisätä.
+        //Luo yhteyden tietokantaan ja tarkistaa ensin onko tiedot jo tietokannassa, jos ei niin lisÃ¤Ã¤ ne tietokantaan.
+        //Jos tiedot ovat tietokannassa ponnahdus ikkuna aukeaa ja kertoo.
+        //TÃ¤mÃ¤n jÃ¤lkeen lisÃ¤Ã¤ kaikki tiedot mÃ¶kkitauluun, alue_id ja postinro tulevat posti ja alue tauluista haettuina.
+        //MÃ¶kkitaulun omat tiedot lisÃ¤tÃ¤Ã¤n suoraan tekstikentistÃ¤.
     private async void LisaysNappi(object sender, EventArgs e)
     {
-        string mokkinimi = Mökkinimi.Text;
+        string mokkinimi = MÃ¶kkinimi.Text;
         string postinro = Postinro.Text;
+        string toimipaikka = Toimipaikka.Text;
         string katuosoite = Katuosoite.Text;
         double hinta = double.Parse(Hinta.Text);
         string kuvaus = Kuvaus.Text;
         string varustelu = Varustelu.Text;
+        int henkilomaara = int.Parse(Henkilomaara.Text);
         string nimi = Alue.Text;
-        await InsertData(nimi, mokkinimi, postinro, katuosoite, hinta, kuvaus, varustelu);
+        await InsertData(nimi, mokkinimi, katuosoite, hinta, kuvaus, varustelu, postinro, toimipaikka, henkilomaara);
 
     }
-        private async Task InsertData(string nimi, string mokkinimi, string postinro, string katuosoite, double hinta, string kuvaus, string varustelu)
+    private async Task InsertData(string nimi, string mokkinimi, string katuosoite, double hinta, string kuvaus, string varustelu, string postinro, string toimipaikka, int henkilomaara)
+    {
+        DatabaseConnection dbc = new DatabaseConnection();
+        using (var connection = dbc._getConnection())
         {
-            DatabaseConnection dbc = new DatabaseConnection();
-            using (var connection = dbc._getConnection())
-            {
-                connection.Open();
+            connection.Open();
 
-            string query = "INSERT INTO vn.alue (nimi) VALUES (@nimi); " +
-               "INSERT INTO vn.posti (postinro, toimipaikka) VALUES (@postinro, @nimi); " +
-               "INSERT INTO mokki (alue_id, postinro, mokkinimi, katuosoite, hinta, kuvaus, varustelu) " +
-               "VALUES ((SELECT alue_id FROM vn.alue WHERE nimi = @nimi), " +
-               "(SELECT postinro FROM vn.posti WHERE toimipaikka = " +
-               "(SELECT toimipaikka FROM vn.alue WHERE nimi = @nimi)), @mokkinimi, @katuosoite, @hinta, @kuvaus, @varustelu);";
-            using (var command = new MySqlCommand(query, connection))
+            string aluetarkistus = "SELECT COUNT(*) FROM vn.alue WHERE nimi = @nimi;";
+            using (var command = new MySqlCommand(aluetarkistus, connection))
+            {
+                command.Parameters.AddWithValue("@nimi", nimi);
+                int count = Convert.ToInt32(await command.ExecuteScalarAsync());
+
+                if (count > 0)
                 {
-                    command.Parameters.AddWithValue("@postinro", postinro);
-                    command.Parameters.AddWithValue("@nimi", nimi);
-                    command.Parameters.AddWithValue("@mokkinimi", mokkinimi);
-                    command.Parameters.AddWithValue("@katuosoite", katuosoite);
-                    command.Parameters.AddWithValue("@hinta", hinta);
-                    command.Parameters.AddWithValue("@kuvaus", kuvaus);
-                    command.Parameters.AddWithValue("@varustelu", varustelu);
-                    await command.ExecuteNonQueryAsync();
+                    await DisplayAlert("Oho", "Alue on jo olemassa", "Ok");
+                }
+                else if (count == 0)
+                {
+                    string addAlue = "INSERT INTO vn.alue (nimi) VALUES (@nimi);";
+                    using (var insertCommand = new MySqlCommand(addAlue, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@nimi", nimi);
+                        await insertCommand.ExecuteNonQueryAsync();
+                    }
                 }
 
-                await DisplayAlert("Onnistui", "Tietokanta yhteys aukesi", "OK");
+            }
+            string postinroTarkistus = "SELECT COUNT(*) from vn.posti where postinro = @postinro;";
+            using (var command = new MySqlCommand(postinroTarkistus, connection))
+            {
+                command.Parameters.AddWithValue("@postinro", postinro);
+                int count = Convert.ToInt32(await command.ExecuteScalarAsync());
+
+                if (count > 0)
+                {
+                    await DisplayAlert("Hups", "Postinumero on jo kannassa", "ok");
+                }
+                else if (count == 0)
+                {
+                    string addPostinro = "INSERT INTO vn.posti (postinro, toimipaikka) VALUES (@postinro, @toimipaikka);";
+                    using (var insertCommand = new MySqlCommand(addPostinro, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@postinro", postinro);
+                        insertCommand.Parameters.AddWithValue("@toimipaikka", toimipaikka);
+                        await insertCommand.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            string addMokki = "INSERT INTO vn.mokki (alue_id, postinro, mokkinimi, katuosoite, hinta, kuvaus, henkilomaara, varustelu) VALUES ((SELECT alue_id from vn.alue where nimi = @nimi), (SELECT postinro from vn.posti where postinro = @postinro), @mokkinimi, @katuosoite, @hinta, @kuvaus, @henkilomaara, @varustelu);";
+            using (var command = new MySqlCommand(addMokki, connection)) 
+            {
+                command.Parameters.AddWithValue("@nimi", nimi);
+                command.Parameters.AddWithValue("@postinro", postinro);
+                command.Parameters.AddWithValue("@mokkinimi", mokkinimi);
+                command.Parameters.AddWithValue("@katuosoite", katuosoite);
+                command.Parameters.AddWithValue("@hinta", hinta);
+                command.Parameters.AddWithValue("@kuvaus", kuvaus);
+                command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
+                command.Parameters.AddWithValue("@varustelu", varustelu);
+                command.ExecuteNonQuery();
             }
         }
-
     }
+}

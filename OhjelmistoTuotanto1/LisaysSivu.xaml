@@ -16,6 +16,9 @@
             x:Name="Postinro"
             Placeholder="Mökin postinro"
         />
+        <Entry x:Name="Toimipaikka"
+               Placeholder="Postinumeron toimipaikka"
+               />
         <Entry
             x:Name="Katuosoite"
             Placeholder="Mökin katuosoite"
@@ -32,6 +35,10 @@
             x:Name="Alue"
             Placeholder="Alue"
         />
+        <Entry
+            x:Name="Henkilomaara"
+            Placeholder="Henkilomaara"
+            />
         <Entry
             x:Name="Varustelu"
             Placeholder="Mökin varustelut"
