@@ -3,50 +3,94 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OhjelmistoTuotanto1.LisaysSivu"
              Title="LisaysSivu">
-    <VerticalStackLayout>
+    <ScrollView>
+    <VerticalStackLayout Margin="40" Spacing="10">
+        
         <Label 
-            Text="Mökkien lisäys"
+            Text="Mökin nimi"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Entry
-            x:Name="Mökkinimi"
+            x:Name="Mokkinimi"
             Placeholder="Mökkinimi"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Postinumero"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Postinro"
             Placeholder="Mökin postinro"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Toimipaikka"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry x:Name="Toimipaikka"
                Placeholder="Postinumeron toimipaikka"
+               WidthRequest="600"
                />
+        <Label 
+            Text="Katuosoite"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Katuosoite"
             Placeholder="Mökin katuosoite"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Hinta"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Hinta"
             Placeholder="Mökin hinta"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Mökin kuvaus"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Kuvaus"
             Placeholder="Kuvaus mökistä"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Mökin alue"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Alue"
             Placeholder="Alue"
+            WidthRequest="600"
         />
+        <Label 
+            Text="Henkilömäärä"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Henkilomaara"
             Placeholder="Henkilomaara"
+            WidthRequest="600"
             />
+        <Label 
+            Text="Varustelu"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
         <Entry
             x:Name="Varustelu"
             Placeholder="Mökin varustelut"
-        />
-        <Button
+            WidthRequest="600"/>
+        
+            <Button
             x:Name="Lisays"
             Clicked="LisaysNappi"
             Text="Yhdistä ja lisää tietokantaan"
-        />
+            WidthRequest="300"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

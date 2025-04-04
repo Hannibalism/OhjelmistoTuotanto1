@@ -19,15 +19,44 @@ public partial class LisaysSivu : ContentPage
         //Mökkitaulun omat tiedot lisätään suoraan tekstikentistä.
     private async void LisaysNappi(object sender, EventArgs e)
     {
-        string mokkinimi = Mökkinimi.Text;
+        string mokkinimi = Mokkinimi.Text;
         string postinro = Postinro.Text;
         string toimipaikka = Toimipaikka.Text;
         string katuosoite = Katuosoite.Text;
-        double hinta = double.Parse(Hinta.Text);
+        double hinta;
         string kuvaus = Kuvaus.Text;
         string varustelu = Varustelu.Text;
-        int henkilomaara = int.Parse(Henkilomaara.Text);
+        int henkilomaara;
         string nimi = Alue.Text;
+
+        if (mokkinimi.Length > 45) 
+        {
+            await DisplayAlert("Virhe", "Mökinnimi saa olla max 45 merkkiä", "Ok");
+            return;
+        }
+        if (katuosoite.Length > 45) 
+        {
+            await DisplayAlert("Virhe", "Katuosoite saa olla max 45 merkkiä", "Ok");
+            return;
+        }
+
+        if (Postinro.Text.Length != 5)
+        {
+            await DisplayAlert("Virhe", "Postinumerossa on oltava 5 merkkiä", "Ok");
+            return;
+        }
+        if (!double.TryParse(Hinta.Text, out hinta)) 
+        {
+            await DisplayAlert("Virhe", "Hinnan täytyy olla numero", "Ok");
+            return;
+        }
+        if (!int.TryParse(Henkilomaara.Text, out henkilomaara)) 
+        {
+            await DisplayAlert("Virhe", "Henkilömäärän täytyy olla kokonaisluku", "Ok");
+            return;
+        }
+
+
         await InsertData(nimi, mokkinimi, katuosoite, hinta, kuvaus, varustelu, postinro, toimipaikka, henkilomaara);
 
     }
