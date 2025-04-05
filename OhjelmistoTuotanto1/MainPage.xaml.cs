@@ -185,5 +185,9 @@ public partial class MainPage : ContentPage
             await SeedDatabaseAsync(connection);
         }
     }
+    
+    private async void OnNavigateToFilterPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new FilterPage());
+    }
 }
-
