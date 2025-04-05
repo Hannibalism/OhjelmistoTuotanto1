@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.FilterPage">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Hintaluokka" FontAttributes="Bold" />
+        <Picker x:Name="PricePicker" SelectedIndexChanged="OnFilterChanged">
+            <Picker.Items>
+                <x:String>Kaikki</x:String>
+                <x:String>0-300 €</x:String>
+                <x:String>301–500 €</x:String>
+                <x:String>501–700 €</x:String>
+                <x:String>700+ €</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Varaustilanne" FontAttributes="Bold" />
+        <Picker x:Name="StatusPicker" SelectedIndexChanged="OnFilterChanged">
+            <Picker.Items>
+                <x:String>Kaikki</x:String>
+                <x:String>Vapaa</x:String>
+                <x:String>Varattu</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <CollectionView x:Name="CottagesCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding Price, StringFormat='Hinta: {0} €'}" />
+                            <Label Text="{Binding IsAvailable}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
