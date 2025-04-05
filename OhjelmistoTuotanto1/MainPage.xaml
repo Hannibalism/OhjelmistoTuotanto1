@@ -23,7 +23,11 @@
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
+          
+            <Button Text="Mökkien suodatus"
+              Clicked="OnNavigateToFilterPage"
+              CornerRadius="10"
+              Padding="10" />
             <Button
                 x:Name="Mokki_lisays"
                 Text="Mökkien Lisäys" 
