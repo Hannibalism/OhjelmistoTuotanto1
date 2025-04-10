@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.AsiakasHallinta"
+             Title="Asiakashallinta">
+    <ScrollView>
+    <VerticalStackLayout Padding="10" Margin="5">
+        <Label
+            Text="Etunimi"
+            HorizontalOptions="Center"
+        />
+        <Entry
+            Placeholder="Etunimi" 
+            MaximumWidthRequest="400"/>
+        <Label
+            HorizontalOptions="Center"
+            Text ="Sukunimi"/>
+        <Entry
+            Placeholder="Sukunimi"
+            HorizontalOptions="Center"
+            MinimumWidthRequest="400"
+            />
+        <Label Text="Postinumero"
+               HorizontalOptions="Center"/>
+        <Entry Placeholder="Postinumero"
+               MinimumWidthRequest="400"
+               MaximumWidthRequest="400"/>
+        <Label Text="Lähiosoite"
+               HorizontalOptions="Center"/>
+        <Entry Placeholder="Lähiosoite" 
+               HorizontalOptions="Center"
+               MinimumWidthRequest="400"/>
+        <Label Text="Sähköposti"
+               HorizontalOptions="Center"> </Label>
+        <Entry Placeholder="email"
+               HorizontalOptions="Center"
+               MinimumWidthRequest="400"
+               MaximumWidthRequest="400"/>
+        <Label Text="Puhelinnumero"
+               HorizontalOptions="Center"></Label>
+            <Entry Placeholder="Puhelinnumero"
+               HorizontalOptions="Center"
+               MinimumWidthRequest="400"
+               MaximumWidthRequest="400"
+               Margin="15"/>
+            <Button MaximumWidthRequest="200"
+                    Text="Lisää / Päivitä "
+                    Margin="10"/>
+
+            <CollectionView ItemsSource="{Binding AsiakasList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                <Border Stroke="Black"
+                        StrokeThickness="1"
+                        Background="White"
+                        HorizontalOptions="Center">
+                    <StackLayout HorizontalOptions="Center">
+                        <Label Text="{Binding Etunimi}" />
+                        <Label Text="{Binding Sukunimi}" />
+                        <Label Text="{Binding Lahiosoite}" />
+                        <Label Text="{Binding Email}" />
+                        <Label Text="{Binding Puhelinnro}" />
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

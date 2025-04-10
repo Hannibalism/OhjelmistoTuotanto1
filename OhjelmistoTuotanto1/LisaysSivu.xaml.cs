@@ -2,7 +2,7 @@ using Microsoft.Maui.Controls;
 using MySqlConnector;
 using Org.BouncyCastle.Asn1.Cms;
 using System.Data.Common;
-using Windows.Media.AppBroadcasting;
+
 
 namespace OhjelmistoTuotanto1;
 
@@ -75,7 +75,7 @@ public partial class LisaysSivu : ContentPage
 
                 if (count > 0)
                 {
-                    await DisplayAlert("Oho", "Alue on jo olemassa", "Ok");
+                    await DisplayAlert("Oho", "Alue on jo olemassa, käytetään olemassa olevaa tietoa.", "Ok");
                 }
                 else if (count == 0)
                 {
@@ -96,7 +96,7 @@ public partial class LisaysSivu : ContentPage
 
                 if (count > 0)
                 {
-                    await DisplayAlert("Hups", "Postinumero on jo kannassa", "ok");
+                    await DisplayAlert("Oho", "Postinumero on jo kannassa, käytetään olevaa tietoa", "ok");
                 }
                 else if (count == 0)
                 {

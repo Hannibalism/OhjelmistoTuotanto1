@@ -40,6 +40,13 @@
                     SemanticProperties.Hint="Connects to database"
                     Clicked="OnDatabaseClicked"
                     HorizontalOptions="Fill" />
+
+            <Button
+                    x:Name="AsiakasHallinta"
+                    Text="AsiakasHallinta"
+                    SemanticProperties.Hint="Vie asiakashallinta sivulle"
+                    Clicked="AsiakasHallintaBtn"
+                    HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 

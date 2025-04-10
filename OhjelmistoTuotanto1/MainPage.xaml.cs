@@ -16,6 +16,11 @@ public partial class MainPage : ContentPage
 	{
         Navigation.PushAsync(new LisaysSivu());
     }
+
+    private void AsiakasHallintaBtn(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AsiakasHallinta());
+    }
     private async void OnDatabaseClicked(object sender, EventArgs e)
     {
         DatabaseConnection dbc = new DatabaseConnection();
