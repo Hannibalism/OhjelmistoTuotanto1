@@ -5,62 +5,115 @@
              Title="Asiakashallinta">
     <ScrollView>
     <VerticalStackLayout Padding="10" Margin="5">
-        <Label
+            <Label Text="AsiakasID" HorizontalOptions="Center"></Label>
+            <Entry IsReadOnly="True"
+                   x:Name="IDEntry"
+                   Placeholder="AsiakasID, Readonly."
+                   MaximumWidthRequest="400"/>
+            <Label
             Text="Etunimi"
             HorizontalOptions="Center"
         />
         <Entry
+            x:Name="EtunimiEntry"
             Placeholder="Etunimi" 
             MaximumWidthRequest="400"/>
         <Label
             HorizontalOptions="Center"
             Text ="Sukunimi"/>
         <Entry
+            x:Name="SukunimiEntry"
             Placeholder="Sukunimi"
             HorizontalOptions="Center"
             MinimumWidthRequest="400"
             />
         <Label Text="Postinumero"
                HorizontalOptions="Center"/>
-        <Entry Placeholder="Postinumero"
+        <Entry 
+               x:Name="PostinumeroEntry"
+               Placeholder="Postinumero"
                MinimumWidthRequest="400"
                MaximumWidthRequest="400"/>
-        <Label Text="Lähiosoite"
+            <Label Text="Toimipaikka" HorizontalOptions="Center"/>
+        
+            <Entry x:Name="ToimipaikkaEntry"
+                   Placeholder="Toimipaikka"
+                   HorizontalOptions="Center"
+                   MinimumWidthRequest="400"/>
+            <Label Text="Lähiosoite"
                HorizontalOptions="Center"/>
-        <Entry Placeholder="Lähiosoite" 
+        <Entry 
+               x:Name="LahiosoiteEntry"
+               Placeholder="Lähiosoite" 
                HorizontalOptions="Center"
                MinimumWidthRequest="400"/>
         <Label Text="Sähköposti"
                HorizontalOptions="Center"> </Label>
-        <Entry Placeholder="email"
+        <Entry 
+               x:Name="emailEntry"
+               Placeholder="email"
                HorizontalOptions="Center"
                MinimumWidthRequest="400"
                MaximumWidthRequest="400"/>
         <Label Text="Puhelinnumero"
                HorizontalOptions="Center"></Label>
-            <Entry Placeholder="Puhelinnumero"
+            
+        <Entry 
+               x:Name="PuhelinnumeroEntry"
+               Placeholder="Puhelinnumero"
                HorizontalOptions="Center"
                MinimumWidthRequest="400"
                MaximumWidthRequest="400"
                Margin="15"/>
-            <Button MaximumWidthRequest="200"
-                    Text="Lisää / Päivitä "
+            <Button 
+                Clicked="Lisaa"
+                MaximumWidthRequest="200"
+                    Text="Lisää / Päivitä"
                     Margin="10"/>
+            <Button
+            Clicked="Tyhjenna" 
+                MaximumWidthRequest="200"
+                Text="Tyhjennä kentät"
+                Margin="10"/>
 
-            <CollectionView ItemsSource="{Binding AsiakasList}">
+            <CollectionView ItemsSource="{Binding AsiakasList}" SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                 <Border Stroke="Black"
+                        WidthRequest="500"
                         StrokeThickness="1"
                         Background="White"
                         HorizontalOptions="Center">
-                    <StackLayout HorizontalOptions="Center">
-                        <Label Text="{Binding Etunimi}" />
-                        <Label Text="{Binding Sukunimi}" />
-                        <Label Text="{Binding Lahiosoite}" />
-                        <Label Text="{Binding Email}" />
-                        <Label Text="{Binding Puhelinnro}" />
-                    </StackLayout>
+                    <Grid HorizontalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                        
+                        <Label Margin="0,0,10, 0" Grid.Row="0" Grid.Column="0" Text="AsiakasID " />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding AsiakasId}" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Etunimi"></Label>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Etunimi}" />
+                        <Label Grid.Row="2" Grid.Column="0" Text="Sukunimi"> </Label>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Sukunimi}" />
+                        <Label Margin="0,0,10, 0" Grid.Row="3" Grid.Column="0" Text="Postinumero" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Postinumero}" />
+                        <Label Grid.Row="4" Grid.Column="0" Text="Lahiosoite" />
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Lahiosoite}" />
+                        <Label Grid.Row="5" Grid.Column="0" Text="Email" />
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding Email}" />
+                        <Label Margin="0,0,10, 0" Grid.Row="6" Grid.Column="0" Text="Puhelinnumero"></Label>
+                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding Puhelinnro}" />
+                    </Grid>
                 </Border>
             </DataTemplate>
         </CollectionView.ItemTemplate>
