@@ -1,41 +1,85 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OhjelmistoTuotanto1.FilterPage">
+             x:Class="OhjelmistoTuotanto1.FilterPage"
+             xmlns:local="clr-namespace:OhjelmistoTuotanto1"
+             BackgroundColor="#1E1E1E"
+             Title="Mökkien Suodatus">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Hintaluokka" FontAttributes="Bold" />
-        <Picker x:Name="PricePicker" SelectedIndexChanged="OnFilterChanged">
-            <Picker.Items>
-                <x:String>Kaikki</x:String>
-                <x:String>0-300 €</x:String>
-                <x:String>301–500 €</x:String>
-                <x:String>501–700 €</x:String>
-                <x:String>700+ €</x:String>
-            </Picker.Items>
-        </Picker>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
 
-        <Label Text="Varaustilanne" FontAttributes="Bold" />
-        <Picker x:Name="StatusPicker" SelectedIndexChanged="OnFilterChanged">
-            <Picker.Items>
-                <x:String>Kaikki</x:String>
-                <x:String>Vapaa</x:String>
-                <x:String>Varattu</x:String>
-            </Picker.Items>
-        </Picker>
+            <!-- Otsikko -->
+            <Label Text="Mökkihaku"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White" />
 
-        <CollectionView x:Name="CottagesCollection">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BorderColor="Gray" Padding="10" Margin="5">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontAttributes="Bold" />
-                            <Label Text="{Binding Price, StringFormat='Hinta: {0} €'}" />
-                            <Label Text="{Binding IsAvailable}" />
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <!-- Pickerit vasemmassa reunassa -->
+            <HorizontalStackLayout Spacing="20"
+                                   HorizontalOptions="Start"
+                                   Padding="0,0,0,10">
 
-    </VerticalStackLayout>
+                <!-- Hintaluokka -->
+                <VerticalStackLayout WidthRequest="160">
+                    <Label Text="Hintaluokka"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#CCCCCC" />
+                    <Picker x:Name="PricePicker"
+                            SelectedIndexChanged="OnFilterChanged"
+                            BackgroundColor="#2D2D2D"
+                            TextColor="White"
+                            Title="Valitse" />
+                </VerticalStackLayout>
+
+                <!-- Varaustilanne -->
+                <VerticalStackLayout WidthRequest="160">
+                    <Label Text="Varaustilanne"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#CCCCCC" />
+                    <Picker x:Name="StatusPicker"
+                            SelectedIndexChanged="OnFilterChanged"
+                            BackgroundColor="#2D2D2D"
+                            TextColor="White"
+                            Title="Valitse" />
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+
+            <!-- Mökkien lista -->
+            <CollectionView x:Name="CottagesCollection"
+                            ItemsLayout="VerticalGrid, 2"
+                            Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#2A2A2A"
+                               CornerRadius="10"
+                               Padding="15"
+                               Margin="5"
+                               HasShadow="False"
+                               BorderColor="#444">
+
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       TextColor="White" />
+
+                                <Label Text="{Binding Price, StringFormat='Hinta: {0} €'}"
+                                       FontSize="13"
+                                       TextColor="#AAAAAA" />
+
+                                <Label Text="{Binding AvailabilityText}"
+                                       FontSize="13"
+                                       TextColor="{Binding IsAvailable, Converter={StaticResource AvailabilityColorConverter}}" />
+                            </VerticalStackLayout>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
