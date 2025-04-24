@@ -14,7 +14,7 @@ public partial class VarausSivu : ContentPage
 {
     public ReservationViewModel ViewModel { get; }
     private List<Asiakas> _customers;
-    private List<Mokki> _cottages;
+    private List<MokkiModel> _cottages;
     private List<Palvelu> _services;
     private List<Palvelu> _selectedServices;
 
