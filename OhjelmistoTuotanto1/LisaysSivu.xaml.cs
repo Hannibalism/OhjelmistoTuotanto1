@@ -58,6 +58,13 @@ public partial class LisaysSivu : ContentPage
 
 
         await InsertData(nimi, mokkinimi, katuosoite, hinta, kuvaus, varustelu, postinro, toimipaikka, henkilomaara);
+        
+        Mokkinimi.Text = "";
+        Postinro.Text = "";
+        Toimipaikka.Text = "";
+        Kuvaus.Text = "";
+        Varustelu.Text = "";
+        Alue.Text = "";
 
     }
     private async Task InsertData(string nimi, string mokkinimi, string katuosoite, double hinta, string kuvaus, string varustelu, string postinro, string toimipaikka, int henkilomaara)

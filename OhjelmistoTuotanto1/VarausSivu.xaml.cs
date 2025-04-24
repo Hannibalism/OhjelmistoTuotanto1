@@ -25,6 +25,7 @@ public partial class VarausSivu : ContentPage
         BindingContext = ViewModel;
         //_selectedServices = new List<Palvelu>();
         //LoadData();
+        
 	}
 
     protected override async void OnAppearing()

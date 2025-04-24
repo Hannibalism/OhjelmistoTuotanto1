@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.PalveluSivu"
+             Title="Palvelu">
+    <ScrollView>
+        <VerticalStackLayout Margin="40" Spacing="10">
+
+            <Label Text="Valitse palvelu:" FontAttributes="Bold" FontSize="16"/>
+            <Picker x:Name="palveluPicker"
+                Title="Valitse palvelu"
+        
+                ItemDisplayBinding="{Binding Nimi}"
+                SelectedIndexChanged="PalveluPicker_SelectedIndexChanged" />
+
+            <Label 
+                Text="Palvelun nimi"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="Palvelunimi"
+                Placeholder="Palvelun nimi"
+                WidthRequest="600"
+            />
+            <Label 
+                Text="Kuvaus"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="Kuvaus"
+                Placeholder="kuvaus"
+                WidthRequest="600"
+            />
+            <Label 
+                Text="Hinta"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry x:Name="Hinta"
+                Placeholder="Hinta"
+                WidthRequest="600"
+           />
+            <Label 
+                Text="alv"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry
+                x:Name="Alv"
+                Placeholder="alv"
+                WidthRequest="600"
+            />
+            <Label 
+            Text="Palvelun alue"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry
+            x:Name="Alue"
+            Placeholder="Alue"
+            WidthRequest="600"
+        />
+
+            <Button
+                 x:Name="palvelulisays"
+                Clicked="palvelulisays_Clicked"
+                Text="Yhdistä ja lisää tietokantaan"
+             WidthRequest="300"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -9,6 +9,9 @@
     <MauiXaml Update="LisaysSivu.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Palvelu.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="VarausSivu.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

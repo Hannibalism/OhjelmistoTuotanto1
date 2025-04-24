@@ -13,7 +13,6 @@ using OhjelmistoTuotanto1.Data;
 
 namespace OhjelmistoTuotanto1.ViewModels
 {
-
     public class ReservationViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Asiakas> Customers { get; set; } = new();
