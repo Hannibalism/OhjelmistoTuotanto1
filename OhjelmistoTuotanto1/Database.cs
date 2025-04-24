@@ -42,9 +42,9 @@ namespace OhjelmistoTuotanto1.Data
             return customers;
         }
 
-        public static async Task<List<Mokki>> GetCottagesAsync()
+        public static async Task<List<MokkiModel>> GetCottagesAsync()
         {
-            var list = new List<Mokki>();
+            var list = new List<MokkiModel>();
             using var conn = GetConnection();
             await conn.OpenAsync();
 
@@ -53,7 +53,7 @@ namespace OhjelmistoTuotanto1.Data
 
             while (await reader.ReadAsync())
             {
-                list.Add(new Mokki
+                list.Add(new MokkiModel
                 {
                     MokkiId = reader.GetInt32("mokki_id"),
                     Mokkinimi = reader.GetString("mokkinimi"),
@@ -71,9 +71,9 @@ namespace OhjelmistoTuotanto1.Data
             return list;
         }
 
-        public static async Task<List<Mokki>> GetAvailableCottagesAsync(DateTime start, DateTime end)
+        public static async Task<List<MokkiModel>> GetAvailableCottagesAsync(DateTime start, DateTime end)
         {
-            var cottages = new List<Mokki>();
+            var cottages = new List<MokkiModel>();
 
             using var connection = new DatabaseConnection()._getConnection();
             await connection.OpenAsync();
@@ -94,7 +94,7 @@ namespace OhjelmistoTuotanto1.Data
             using var reader = await cmd.ExecuteReaderAsync();
             while (await reader.ReadAsync())
             {
-                var mokki = new Mokki
+                var mokki = new MokkiModel
                 {
                     MokkiId = reader.GetInt32("mokki_id"),
                     AlueId = reader.GetInt32("alue_id"),

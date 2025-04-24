@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OhjelmistoTuotanto1.Models
 {
-    public class Mokki
+    public class MokkiModel
     {
         public int MokkiId { get; set; }
         public int AlueId { get; set; }

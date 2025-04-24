@@ -16,7 +16,7 @@ namespace OhjelmistoTuotanto1.ViewModels
     public class ReservationViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Asiakas> Customers { get; set; } = new();
-        public ObservableCollection<Mokki> Cottages { get; set; } = new();
+        public ObservableCollection<MokkiModel> Cottages { get; set; } = new();
         public ObservableCollection<Palvelu> Services { get; set; } = new();
         public bool ShowCottagePicker => StartDate < EndDate;
 
@@ -27,8 +27,8 @@ namespace OhjelmistoTuotanto1.ViewModels
             set { _selectedCustomer = value; OnPropertyChanged(nameof(SelectedCustomer)); }
         }
 
-        private Mokki _selectedCottage;
-        public Mokki SelectedCottage
+        private MokkiModel _selectedCottage;
+        public MokkiModel SelectedCottage
         {
             get => _selectedCottage;
             set { _selectedCottage = value; OnPropertyChanged(nameof(SelectedCottage)); }
@@ -106,7 +106,6 @@ namespace OhjelmistoTuotanto1.ViewModels
 
         private async Task MakeReservationAsync()
         {
-
             try
             {
                 if (SelectedCottage == null || SelectedCustomer == null)
