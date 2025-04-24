@@ -1,6 +1,8 @@
 using Microsoft.Maui.Controls;
 using MySqlConnector;
 
+namespace OhjelmistoTuotanto1.Data
+{
 public class DatabaseConnection
 {
     private readonly string server = "localhost";
@@ -23,3 +25,5 @@ public class DatabaseConnection
         return connection;
     }
 }
+}
+

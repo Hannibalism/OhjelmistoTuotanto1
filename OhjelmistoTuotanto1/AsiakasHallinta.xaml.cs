@@ -4,6 +4,7 @@ using MySqlConnector;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Reflection.PortableExecutable;
+using OhjelmistoTuotanto1.Data;
 
 public partial class AsiakasHallinta : ContentPage
 {

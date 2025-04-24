@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local ="clr-namespace:OhjelmistoTuotanto1.ViewModels"
+             xmlns:conv="clr-namespace:OhjelmistoTuotanto1.Converters"
+             x:Class="OhjelmistoTuotanto1.VarausSivu"
+             Title="Varaus">
+
+    <ContentPage.BindingContext>
+        <local:ReservationViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10">
+        <!-- Customer Picker -->
+        <Label Text="Asiakas" />
+        <Picker ItemsSource="{Binding Customers}"
+                ItemDisplayBinding="{Binding Kokonimi}"
+                SelectedItem="{Binding SelectedCustomer}" />
+
+        <!-- Start Date Picker -->
+        <Label Text="Varauksen alku" />
+        <DatePicker Date="{Binding StartDate}" />
+
+        <!-- End Date Picker -->
+        <Label Text="Varauksen loppu" />
+        <DatePicker Date="{Binding EndDate}" />
+
+        <!-- Cottage Picker -->
+        <StackLayout IsVisible="{Binding ShowCottagePicker, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Label Text="Mökki" />
+            <Picker ItemsSource="{Binding Cottages}"
+                ItemDisplayBinding="{Binding .}"
+                SelectedItem="{Binding SelectedCottage}" />
+        </StackLayout>
+
+        <!-- Services ListView with Quantity -->
+        <Label Text="Lisäpalvelut" />
+        <ListView ItemsSource="{Binding Services}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Nimi}" />
+                            <Label Text="{Binding Kuvaus}" />
+                            <StackLayout Orientation="Horizontal">
+                                <!-- Quantity Stepper or Entry -->
+                                <Stepper Minimum="0" Maximum="1" Increment="1" 
+                                         Value="{Binding Quantity}" />
+                                <Label Text="{Binding Quantity}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Submit Button -->
+        <Button Text="Submit Reservation" Command="{Binding ReserveCommand}" />
+    </StackLayout>
+</ContentPage>

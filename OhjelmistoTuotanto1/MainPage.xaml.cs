@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using Org.BouncyCastle.Asn1.IsisMtt.X509;
+using OhjelmistoTuotanto1.Data;
 
 namespace OhjelmistoTuotanto1;
 
@@ -20,6 +21,10 @@ public partial class MainPage : ContentPage
     private void AsiakasHallintaBtn(object sender, EventArgs e)
     {
         Navigation.PushAsync(new AsiakasHallinta());
+    }
+    private void MakeReservation(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new VarausSivu());
     }
     private async void OnDatabaseClicked(object sender, EventArgs e)
     {

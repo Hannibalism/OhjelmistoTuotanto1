@@ -23,7 +23,12 @@
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="" />
-          
+
+            <Button Text="Varaa mökki"
+              Clicked="MakeReservation"
+              CornerRadius="10"
+              Padding="10" />
+
             <Button Text="Mökkien suodatus"
               Clicked="OnNavigateToFilterPage"
               CornerRadius="10"

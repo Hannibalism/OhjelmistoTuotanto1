@@ -59,3 +59,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/VarausSivu.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.VarausSivu.xaml
+build_metadata.AdditionalFiles.TargetPath = VarausSivu.xaml
+build_metadata.AdditionalFiles.RelativePath = VarausSivu.xaml

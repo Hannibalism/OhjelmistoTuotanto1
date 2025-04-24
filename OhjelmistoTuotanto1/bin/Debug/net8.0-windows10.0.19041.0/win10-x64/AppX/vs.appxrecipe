@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-17T17:21:49.106</Modified>
+      <Modified>2025-04-24T12:33:16.849</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-01T15:15:11.277</Modified>
+      <Modified>2025-04-24T12:15:43.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.runtimeconfig.json">
       <PackagePath>OhjelmistoTuotanto1.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.dll">
       <PackagePath>OhjelmistoTuotanto1.dll</PackagePath>
-      <Modified>2025-04-17T17:21:48.742</Modified>
+      <Modified>2025-04-24T12:33:16.132</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>OhjelmistoTuotanto1.exe</PackagePath>
-      <Modified>2025-04-17T17:21:48.747</Modified>
+      <Modified>2025-04-24T12:33:16.141</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -287,7 +287,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.deps.json">
       <PackagePath>OhjelmistoTuotanto1.deps.json</PackagePath>
-      <Modified>2025-04-01T15:15:10.982</Modified>
+      <Modified>2025-04-24T12:15:43.834</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
