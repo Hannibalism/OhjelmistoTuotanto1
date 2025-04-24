@@ -5,8 +5,10 @@
              Title="LisaysSivu">
     <ScrollView>
     <VerticalStackLayout Margin="40" Spacing="10">
-        
-        <Label 
+            <Label Text="MokkiID">
+            </Label>
+            <Entry IsReadOnly="True" x:Name="mokkiID" />
+            <Label 
             Text="Mökin nimi"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
@@ -91,6 +93,51 @@
             Clicked="LisaysNappi"
             Text="Yhdistä ja lisää tietokantaan"
             WidthRequest="300"/>
-    </VerticalStackLayout>
+
+            <CollectionView ItemsSource="{Binding MokkiList}" SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="Black"
+                        WidthRequest="500"
+                        StrokeThickness="1"
+                        Background="White"
+                        HorizontalOptions="Center">
+                            <Grid HorizontalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Margin="0,0,10, 0" Grid.Row="7" Grid.Column="0" Text="MokkiID"></Label>
+                                <Label Grid.Row="7" Grid.Column="1" Text="{Binding MokkiID}" />
+                                <Label Margin="0,0,10, 0" Grid.Row="0" Grid.Column="0" Text="Mokkinimi " />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Mokkinimi}" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="Katuosoite"></Label>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Katuosoite}" />
+                                <Label Grid.Row="2" Grid.Column="0" Text="Postinumero"></Label>
+                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Postinro}" />
+                                <Label Margin="0,0,10, 0" Grid.Row="3" Grid.Column="0" Text="Hinta" />
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Hinta}" />
+                                <Label Grid.Row="4" Grid.Column="0" Text="Kuvaus" />
+                                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Kuvaus}" />
+                                <Label Grid.Row="5" Grid.Column="0" Text="Henkilomaara" />
+                                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Henkilomaara}" />
+                                <Label Margin="0,0,10, 0" Grid.Row="6" Grid.Column="0" Text="Varustelu"></Label>
+                                <Label Grid.Row="6" Grid.Column="1" Text="{Binding Varustelu}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
