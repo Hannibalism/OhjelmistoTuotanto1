@@ -153,7 +153,7 @@ namespace OhjelmistoTuotanto1.ViewModels
                 });
 
                 await Application.Current.MainPage.DisplayAlert("Success", "Reservation created!", "OK");
-                await Shell.Current.GoToAsync("//MainPage");
+                await Application.Current.MainPage.Navigation.PopToRootAsync();
             }
             catch (Exception ex)
             {

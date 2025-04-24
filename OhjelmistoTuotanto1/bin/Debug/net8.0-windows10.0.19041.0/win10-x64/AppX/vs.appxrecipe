@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-24T12:33:16.849</Modified>
+      <Modified>2025-04-24T12:42:13.838</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.dll">
       <PackagePath>OhjelmistoTuotanto1.dll</PackagePath>
-      <Modified>2025-04-24T12:33:16.132</Modified>
+      <Modified>2025-04-24T12:42:13.073</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>OhjelmistoTuotanto1.exe</PackagePath>
-      <Modified>2025-04-24T12:33:16.141</Modified>
+      <Modified>2025-04-24T12:42:13.082</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
