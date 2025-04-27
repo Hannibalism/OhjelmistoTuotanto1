@@ -5,13 +5,16 @@
              Title="LisaysSivu">
     <ScrollView>
     <VerticalStackLayout Margin="40" Spacing="10">
-            <Label Text="MokkiID">
+            <Label Text="MokkiID" HorizontalOptions="Center">
             </Label>
-            <Entry IsReadOnly="True" x:Name="mokkiID" />
+            <Entry IsReadOnly="True" 
+                   x:Name="mokkiID" 
+                   WidthRequest="600"
+                   Placeholder="ReadOnly"/>
             <Label 
             Text="Mökin nimi"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"/>
         <Entry
             x:Name="Mokkinimi"
             Placeholder="Mökkinimi"
@@ -91,8 +94,14 @@
             <Button
             x:Name="Lisays"
             Clicked="LisaysNappi"
-            Text="Yhdistä ja lisää tietokantaan"
+            Text="Lisää/Päivitä mökki"
             WidthRequest="300"/>
+            <Button 
+                x:Name="ClearButton"
+                Clicked="ClearFieldsButton"
+                WidthRequest="300"
+                Text="Tyhjennä kentät"
+                />
 
             <CollectionView ItemsSource="{Binding MokkiList}" SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">
                 <CollectionView.ItemTemplate>

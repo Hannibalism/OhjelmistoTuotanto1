@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using OhjelmistoTuotanto1.Models;
 using System.Diagnostics.Eventing.Reader;
 using Microsoft.Maui.ApplicationModel.Communication;
+using System.ComponentModel;
 
 namespace OhjelmistoTuotanto1;
 
@@ -21,7 +22,17 @@ public partial class LisaysSivu : ContentPage
         LoadData();
         BindingContext = this;
     }
-
+    public void ClearFieldsButton(object sender, EventArgs e) 
+    {
+        mokkiID.Text = string.Empty;
+        Mokkinimi.Text = string.Empty;
+        Postinro.Text = string.Empty;
+        Hinta.Text = string.Empty;
+        Katuosoite.Text = string.Empty;
+        Kuvaus.Text = string.Empty;
+        Henkilomaara.Text = string.Empty;
+        Varustelu.Text = string.Empty;
+    }
     private void LoadData()
     {
         DatabaseConnection dbc = new DatabaseConnection();
@@ -56,7 +67,7 @@ public partial class LisaysSivu : ContentPage
             if (selectedMokki != null)
             {
                 mokkiID.Text = selectedMokki.MokkiID.ToString();
-                Mokkinimi.Text= selectedMokki.Mokkinimi;
+                Mokkinimi.Text = selectedMokki.Mokkinimi;
                 Postinro.Text = selectedMokki.Postinro;
                 Hinta.Text = selectedMokki.Hinta.ToString();
                 Katuosoite.Text = selectedMokki.Katuosoite;
@@ -83,12 +94,12 @@ public partial class LisaysSivu : ContentPage
         int henkilomaara;
         string nimi = Alue.Text;
 
-        if (mokkinimi.Length > 45) 
+        if (mokkinimi.Length > 45)
         {
             await DisplayAlert("Virhe", "Mökinnimi saa olla max 45 merkkiä", "Ok");
             return;
         }
-        if (katuosoite.Length > 45) 
+        if (katuosoite.Length > 45)
         {
             await DisplayAlert("Virhe", "Katuosoite saa olla max 45 merkkiä", "Ok");
             return;
@@ -99,12 +110,12 @@ public partial class LisaysSivu : ContentPage
             await DisplayAlert("Virhe", "Postinumerossa on oltava 5 merkkiä", "Ok");
             return;
         }
-        if (!double.TryParse(Hinta.Text, out hinta)) 
+        if (!double.TryParse(Hinta.Text, out hinta))
         {
             await DisplayAlert("Virhe", "Hinnan täytyy olla numero", "Ok");
             return;
         }
-        if (!int.TryParse(Henkilomaara.Text, out henkilomaara)) 
+        if (!int.TryParse(Henkilomaara.Text, out henkilomaara))
         {
             await DisplayAlert("Virhe", "Henkilömäärän täytyy olla kokonaisluku", "Ok");
             return;
@@ -229,23 +240,119 @@ public partial class LisaysSivu : ContentPage
                     Command.Parameters.AddWithValue("@kuvaus", kuvaus);
                     Command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
                     Command.Parameters.AddWithValue("@hinta", hinta);
-                    Command.ExecuteScalar();
+                    await Command.ExecuteNonQueryAsync();
 
+                    var updatedMokki = MokkiList.FirstOrDefault(m => m.MokkiID == int.Parse(mokkiID.Text));
+                    if (updatedMokki != null)
+                    {
+                        updatedMokki.Mokkinimi = mokkinimi;
+                        updatedMokki.Katuosoite = katuosoite;
+                        updatedMokki.Postinro = postinro;
+                        updatedMokki.Hinta = hinta;
+                        updatedMokki.Kuvaus = kuvaus;
+                        updatedMokki.Henkilomaara = henkilomaara;
+                    }
                 }
             }
         }
     }
-    public class Mokki
+
+    public class Mokki : INotifyPropertyChanged
     {
-        public int MokkiID { get; set; }
-        public string Mokkinimi { get; set; }
-        public string Katuosoite { get; set; }
-        public string Postinro { get; set; }
-        public double Hinta { get; set; }
-        public string Kuvaus { get; set; }
-        public int Henkilomaara { get; set; }
-        public string Varustelu { get; set; }
+        private int mokkiID;
+        private string mokkinimi;
+        private string katuosoite;
+        private string postinro;
+        private double hinta;
+        private string kuvaus;
+        private int henkilomaara;
+        private string varustelu;
 
+        public int MokkiID
+        {
+            get => mokkiID;
+            set
+            {
+                mokkiID = value;
+                OnPropertyChanged(nameof(MokkiID));
+            }
+        }
 
+        public string Mokkinimi
+        {
+            get => mokkinimi;
+            set
+            {
+                mokkinimi = value;
+                OnPropertyChanged(nameof(Mokkinimi));
+            }
+        }
+
+        public string Katuosoite
+        {
+            get => katuosoite;
+            set
+            {
+                katuosoite = value;
+                OnPropertyChanged(nameof(Katuosoite));
+            }
+        }
+
+        public string Postinro
+        {
+            get => postinro;
+            set
+            {
+                postinro = value;
+                OnPropertyChanged(nameof(Postinro));
+            }
+        }
+
+        public double Hinta
+        {
+            get => hinta;
+            set
+            {
+                hinta = value;
+                OnPropertyChanged(nameof(Hinta));
+            }
+        }
+
+        public string Kuvaus
+        {
+            get => kuvaus;
+            set
+            {
+                kuvaus = value;
+                OnPropertyChanged(nameof(Kuvaus));
+            }
+        }
+
+        public int Henkilomaara
+        {
+            get => henkilomaara;
+            set
+            {
+                henkilomaara = value;
+                OnPropertyChanged(nameof(Henkilomaara));
+            }
+        }
+
+        public string Varustelu
+        {
+            get => varustelu;
+            set
+            {
+                varustelu = value;
+                OnPropertyChanged(nameof(Varustelu));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
