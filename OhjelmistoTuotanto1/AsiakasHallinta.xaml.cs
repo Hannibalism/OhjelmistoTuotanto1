@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Reflection.PortableExecutable;
 using OhjelmistoTuotanto1.Data;
+using System.ComponentModel;
 
 public partial class AsiakasHallinta : ContentPage
 {
@@ -180,22 +181,80 @@ public partial class AsiakasHallinta : ContentPage
                     Command.Parameters.AddWithValue("@lahiosoite", lahiosoite);
                     Command.Parameters.AddWithValue("@email", email);
                     Command.Parameters.AddWithValue("@puhelinnumero", puhelinnumero);
-                    Command.ExecuteScalar();
+                    await Command.ExecuteNonQueryAsync();
+
+                    var existingAsiakas = AsiakasList.FirstOrDefault(a => a.AsiakasId == int.Parse(asiakasid));
+                    if (existingAsiakas != null)
+                    {
+                        existingAsiakas.Etunimi = etunimi;
+                        existingAsiakas.Sukunimi = sukunimi;
+                        existingAsiakas.Postinumero = postinumero;
+                        existingAsiakas.Lahiosoite = lahiosoite;
+                        existingAsiakas.Email = email;
+                        existingAsiakas.Puhelinnro = puhelinnumero;
+                    }
                 }
             }
         }
     }
 
-    public class Asiakas
+    public class Asiakas : INotifyPropertyChanged
     {
-        public int AsiakasId { get; set; }
-        public string Etunimi { get; set; }
-        public string Sukunimi { get; set; }
-        public string Postinumero {  get; set; }
-        public string Lahiosoite { get; set; }
-        public string Email { get; set; }
-        public string Puhelinnro { get; set; }
+        private int asiakasId;
+        private string etunimi;
+        private string sukunimi;
+        private string postinumero;
+        private string lahiosoite;
+        private string email;
+        private string puhelinnumero;
 
+        public int AsiakasId
+        {
+            get => asiakasId;
+            set { asiakasId = value; OnPropertyChanged(nameof(AsiakasId)); }
+        }
 
+        public string Etunimi
+        {
+            get => etunimi;
+            set { etunimi = value; OnPropertyChanged(nameof(Etunimi)); }
+        }
+
+        public string Sukunimi
+        {
+            get => sukunimi;
+            set { sukunimi = value; OnPropertyChanged(nameof(Sukunimi)); }
+        }
+
+        public string Postinumero
+        {
+            get => postinumero;
+            set { postinumero = value; OnPropertyChanged(nameof(Postinumero)); }
+        }
+
+        public string Lahiosoite
+        {
+            get => lahiosoite;
+            set { lahiosoite = value; OnPropertyChanged(nameof(Lahiosoite)); }
+        }
+
+        public string Email
+        {
+            get => email;
+            set { email = value; OnPropertyChanged(nameof(Email)); }
+        }
+
+        public string Puhelinnro
+        {
+            get => puhelinnumero;
+            set { puhelinnumero = value; OnPropertyChanged(nameof(Puhelinnro)); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
