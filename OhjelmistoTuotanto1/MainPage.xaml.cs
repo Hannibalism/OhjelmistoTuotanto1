@@ -26,6 +26,10 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new VarausSivu());
     }
+    private void PalveluRaporttiClicked (object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PalveluRaporttiPage());
+    }
     private async void OnDatabaseClicked(object sender, EventArgs e)
     {
         DatabaseConnection dbc = new DatabaseConnection();

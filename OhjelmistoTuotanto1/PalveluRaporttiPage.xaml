@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.PalveluRaporttiPage"
+             Title="PalveluRaporttiPage">
+    <VerticalStackLayout Padding="20">
+
+
+        <Label Text="Valitse ajanjakso:" FontAttributes="Bold" FontSize="16"/>
+
+
+
+        <Label Text="Alkuaika"></Label>
+        <Entry x:Name="HiddenEntry1" IsVisible="True" Placeholder="yyyy/MM/dd"
+        />
+        <Label Text="Loppuaika" />
+        <Entry x:Name="HiddenEntry2" Placeholder="yyyy/MM/dd" IsVisible="True"
+        />
+        <Entry x:Name="HiddenEntry3" Placeholder="Alue" IsVisible="False"
+        />
+
+
+        
+
+        <Label Text="Valitse alue:" FontAttributes="Bold" FontSize="16"/>
+        <Picker x:Name="aluePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged"/>
+        <Button 
+            x:Name="hakuButton"
+            Text="Hae"
+            Clicked="palveluhakuClicked" />
+
+        <CollectionView ItemsSource="{Binding PalveluRaportList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Black" Padding="10" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding nimi}" FontAttributes="Bold" />
+                            <Label Text="{Binding kuvaus}" />
+                            <Label Text="{Binding hinta, StringFormat='Hinta: {0:C}'}" />
+                            <Label Text="{Binding totallkm, StringFormat='Varauksia yhteensä: {0}'}" />
+                            <Label Text="{Binding totaltuotto, StringFormat='Kokonaistuotto: {0}€'}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
