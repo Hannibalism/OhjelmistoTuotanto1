@@ -70,6 +70,9 @@
                 MaximumWidthRequest="200"
                     Text="Lisää / Päivitä"
                     Margin="10"/>
+            <Button Clicked="DeleteOnClicked"
+                    Text="Poista asiakas"
+                    WidthRequest="300"/>
             <Button
             Clicked="Tyhjenna" 
                 MaximumWidthRequest="200"

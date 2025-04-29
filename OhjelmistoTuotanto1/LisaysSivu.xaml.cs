@@ -8,6 +8,7 @@ using OhjelmistoTuotanto1.Models;
 using System.Diagnostics.Eventing.Reader;
 using Microsoft.Maui.ApplicationModel.Communication;
 using System.ComponentModel;
+using Org.BouncyCastle.Security;
 
 namespace OhjelmistoTuotanto1;
 
@@ -255,6 +256,46 @@ public partial class LisaysSivu : ContentPage
                 }
             }
         }
+    }
+
+    //Poistaa mökin kaikkialta tietokannasta.
+    public async void DeleteOnClicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(mokkiID.Text))
+        {
+            await DisplayAlert("Error", "Ei valittua mökkiä.", "OK");
+            return;
+        }
+
+        int mokkiIdToDelete = int.Parse(mokkiID.Text);
+        DatabaseConnection dbc = new DatabaseConnection();
+
+        using (var connection = dbc._getConnection())
+        {
+            connection.Open();
+
+            string deleteRelatedQuery = "DELETE FROM vn.varaus WHERE mokki_id = @MokkiID;";
+            using (var command = new MySqlCommand(deleteRelatedQuery, connection))
+            {
+                command.Parameters.AddWithValue("@MokkiID", mokkiIdToDelete);
+                await command.ExecuteNonQueryAsync();
+            }
+
+            string deleteQuery = "DELETE FROM vn.mokki WHERE mokki_id = @MokkiID;";
+            using (var command = new MySqlCommand(deleteQuery, connection))
+            {
+                command.Parameters.AddWithValue("@MokkiID", mokkiIdToDelete);
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
+        var mokkiToRemove = MokkiList.FirstOrDefault(m => m.MokkiID == mokkiIdToDelete);
+        if (mokkiToRemove != null)
+        {
+            MokkiList.Remove(mokkiToRemove);
+        }
+
+        await DisplayAlert("Success", "Mökki onnistuneesti poistettu.", "OK");
     }
 
     public class Mokki : INotifyPropertyChanged

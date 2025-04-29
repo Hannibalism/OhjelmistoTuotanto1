@@ -96,6 +96,9 @@
             Clicked="LisaysNappi"
             Text="Lisää/Päivitä mökki"
             WidthRequest="300"/>
+            <Button Text="Poisto"
+                    Clicked="DeleteOnClicked"
+                    WidthRequest="300"> </Button>
             <Button 
                 x:Name="ClearButton"
                 Clicked="ClearFieldsButton"

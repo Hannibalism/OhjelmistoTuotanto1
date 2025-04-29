@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Reflection.PortableExecutable;
 using OhjelmistoTuotanto1.Data;
 using System.ComponentModel;
+using Org.BouncyCastle.Tls;
 
 public partial class AsiakasHallinta : ContentPage
 {
@@ -196,6 +197,54 @@ public partial class AsiakasHallinta : ContentPage
                 }
             }
         }
+    }
+    public async void DeleteOnClicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(IDEntry.Text))
+        {
+            await DisplayAlert("Error", "No customer selected.", "OK");
+            return;
+        }
+
+        int asiakasIdToDelete = int.Parse(IDEntry.Text);
+        DatabaseConnection dbc = new DatabaseConnection();
+
+        using (var connection = dbc._getConnection())
+        {
+            connection.Open();
+
+            // Delete related records in varauksen_palvelut
+            string deleteRelatedQuery = "DELETE FROM vn.varauksen_palvelut WHERE varaus_id IN (SELECT varaus_id FROM vn.varaus WHERE asiakas_id = @asiakasID);";
+            using (var command = new MySqlCommand(deleteRelatedQuery, connection))
+            {
+                command.Parameters.AddWithValue("@asiakasID", asiakasIdToDelete);
+                await command.ExecuteNonQueryAsync();
+            }
+
+            // Delete records in varaus
+            deleteRelatedQuery = "DELETE FROM vn.varaus WHERE asiakas_id = @asiakasID;";
+            using (var command = new MySqlCommand(deleteRelatedQuery, connection))
+            {
+                command.Parameters.AddWithValue("@asiakasID", asiakasIdToDelete);
+                await command.ExecuteNonQueryAsync();
+            }
+
+            // Finally, delete the customer
+            string deleteQuery = "DELETE FROM vn.asiakas WHERE asiakas_id = @asiakasID;";
+            using (var command = new MySqlCommand(deleteQuery, connection))
+            {
+                command.Parameters.AddWithValue("@asiakasID", asiakasIdToDelete);
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
+        var asiakasToRemove = AsiakasList.FirstOrDefault(m => m.AsiakasId == asiakasIdToDelete);
+        if (asiakasToRemove != null)
+        {
+            AsiakasList.Remove(asiakasToRemove);
+        }
+
+        await DisplayAlert("Success", "Customer successfully deleted.", "OK");
     }
 
     public class Asiakas : INotifyPropertyChanged
