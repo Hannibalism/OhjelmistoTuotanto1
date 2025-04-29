@@ -3,13 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OhjelmistoTuotanto1.PalveluRaporttiPage"
              Title="PalveluRaporttiPage">
+    <ScrollView>
     <VerticalStackLayout Padding="20">
-
-
+        
         <Label Text="Valitse ajanjakso:" FontAttributes="Bold" FontSize="16"/>
-
-
-
         <Label Text="Alkuaika"></Label>
         <Entry x:Name="HiddenEntry1" IsVisible="True" Placeholder="yyyy/MM/dd"
         />
@@ -18,17 +15,12 @@
         />
         <Entry x:Name="HiddenEntry3" Placeholder="Alue" IsVisible="False"
         />
-
-
-        
-
         <Label Text="Valitse alue:" FontAttributes="Bold" FontSize="16"/>
         <Picker x:Name="aluePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged"/>
         <Button 
             x:Name="hakuButton"
             Text="Hae"
             Clicked="palveluhakuClicked" />
-
         <CollectionView ItemsSource="{Binding PalveluRaportList}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -44,8 +36,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
-
-
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
