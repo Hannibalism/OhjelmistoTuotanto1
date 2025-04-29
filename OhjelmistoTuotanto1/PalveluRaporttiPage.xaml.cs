@@ -69,9 +69,13 @@ public partial class PalveluRaporttiPage : ContentPage
 
     private async void palveluhakuClicked(object sender, EventArgs e)
     {
-        string sD = string.Empty;
-        string eD = string.Empty;
-        string nimi = string.Empty;
+        //Varmistaa ettei Entreissä ole kirjaimia tai muita ei sallittuja merkkejä.
+        if (!FormatTarkistus(HiddenEntry1.Text) || !FormatTarkistus(HiddenEntry2.Text))
+        {
+            await DisplayAlert("Format virhe.", "Ethän syötä kirjaimia.", "OK");
+            return;
+        }
+
         PalveluRaportList.Clear();
         PalveluReportViewModel viewmodel = new PalveluReportViewModel();
         DatabaseConnection dbc = new DatabaseConnection();
@@ -142,5 +146,9 @@ public partial class PalveluRaporttiPage : ContentPage
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+    private bool FormatTarkistus(string input)
+    {
+        return Regex.IsMatch(input, @"^[0-9/\\]*$");
     }
 }
