@@ -5,8 +5,16 @@
              Title="LisaysSivu">
     <ScrollView>
     <VerticalStackLayout Margin="40" Spacing="10">
+
+            <Button Text="Aluehallinta" 
+                    Clicked="AluehallintaBtn" />
+
+            <Button Text="Virkistä alueet"
+                Clicked="UpdatePickerButton_Clicked" />
             <Label Text="MokkiID" HorizontalOptions="Center">
             </Label>
+            <Entry x:Name="HiddenEntry3" Placeholder="Alue" IsVisible="False"
+ />
             <Entry IsReadOnly="True" 
                    x:Name="mokkiID" 
                    WidthRequest="600"
@@ -68,12 +76,8 @@
             Text="Mökin alue"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Entry
-            x:Name="Alue"
-            Placeholder="Alue"
-            WidthRequest="600"
-        />
-        <Label 
+            <Picker x:Name="aluePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged" WidthRequest="600"/>
+            <Label 
             Text="Henkilömäärä"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
