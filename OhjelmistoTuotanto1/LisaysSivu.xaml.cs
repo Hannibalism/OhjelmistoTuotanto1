@@ -22,6 +22,54 @@ public partial class LisaysSivu : ContentPage
         MokkiList = new ObservableCollection<Mokki>();
         LoadData();
         BindingContext = this;
+        LoadAlueData();
+
+    }
+
+    private void AluehallintaBtn(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Aluehallinta());
+    }
+
+    private async void LoadAlueData()
+    {
+        var alueNames = await GetAlueNamesAsync();
+        aluePicker.ItemsSource = alueNames;
+    }
+    private async Task<List<string>> GetAlueNamesAsync()
+    {
+        var alueNames = new List<string>();
+
+
+        DatabaseConnection dbc = new DatabaseConnection();
+        using (var connection = dbc._getConnection())
+        {
+            connection.Open();
+            {
+                string SelectAlue = "SELECT nimi FROM vn.alue";
+                var command = new MySqlCommand(SelectAlue, connection);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        if (!reader.IsDBNull(0))
+                        {
+                            alueNames.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+
+            return alueNames;
+        }
+    }
+    private void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        var selectedAlueName = picker.SelectedItem as string;
+        HiddenEntry3.Text = selectedAlueName;
+
     }
     public void ClearFieldsButton(object sender, EventArgs e) 
     {
@@ -93,7 +141,7 @@ public partial class LisaysSivu : ContentPage
         string kuvaus = Kuvaus.Text;
         string varustelu = Varustelu.Text;
         int henkilomaara;
-        string nimi = Alue.Text;
+        string nimi = HiddenEntry3.Text;
 
         if (mokkinimi.Length > 45)
         {
@@ -210,27 +258,6 @@ public partial class LisaysSivu : ContentPage
             {
                 connection.Open();
 
-                string aluetarkistus = "SELECT COUNT(*) FROM vn.alue WHERE nimi = @nimi;";
-                using (var command = new MySqlCommand(aluetarkistus, connection))
-                {
-                    command.Parameters.AddWithValue("@nimi", nimi);
-                    int count = Convert.ToInt32(await command.ExecuteScalarAsync());
-
-                    if (count > 0)
-                    {
-                        await DisplayAlert("Oho", "Alue on jo olemassa, käytetään olemassa olevaa tietoa.", "Ok");
-                    }
-                    else if (count == 0)
-                    {
-                        string addAlue = "INSERT INTO vn.alue (nimi) VALUES (@nimi);";
-                        using (var insertCommand = new MySqlCommand(addAlue, connection))
-                        {
-                            insertCommand.Parameters.AddWithValue("@nimi", nimi);
-                            await insertCommand.ExecuteNonQueryAsync();
-                        }
-                    }
-
-                }
                 string PaivitaMokki = "UPDATE vn.mokki SET postinro = @postinro, mokkinimi = @mokkinimi, katuosoite = @katuosoite, hinta = @hinta, kuvaus = @kuvaus, henkilomaara = @henkilomaara WHERE mokki_id = @MokkiID;";
                 using (var Command = new MySqlCommand(PaivitaMokki, connection))
                 {
@@ -297,8 +324,14 @@ public partial class LisaysSivu : ContentPage
 
         await DisplayAlert("Success", "Mökki onnistuneesti poistettu.", "OK");
     }
+    private async void UpdatePickerButton_Clicked(object sender, EventArgs e)
+    {
+        var updatedAlueNames = await GetAlueNamesAsync();
+        aluePicker.ItemsSource = updatedAlueNames;
+    }
+}
 
-    public class Mokki : INotifyPropertyChanged
+public class Mokki : INotifyPropertyChanged
     {
         private int mokkiID;
         private string mokkinimi;
@@ -396,4 +429,3 @@ public partial class LisaysSivu : ContentPage
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-}
