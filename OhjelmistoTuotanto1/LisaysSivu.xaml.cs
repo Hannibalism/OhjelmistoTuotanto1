@@ -258,7 +258,8 @@ public partial class LisaysSivu : ContentPage
             {
                 connection.Open();
 
-                string PaivitaMokki = "UPDATE vn.mokki SET postinro = @postinro, mokkinimi = @mokkinimi, katuosoite = @katuosoite, hinta = @hinta, kuvaus = @kuvaus, henkilomaara = @henkilomaara WHERE mokki_id = @MokkiID;";
+                string PaivitaMokki = "UPDATE vn.mokki SET postinro = @postinro, mokkinimi = @mokkinimi, katuosoite = @katuosoite, hinta = @hinta, kuvaus = @kuvaus, henkilomaara = @henkilomaara, alue_id = (SELECT alue_id FROM vn.alue WHERE nimi = @nimi) WHERE mokki_id = @MokkiID;";
+
                 using (var Command = new MySqlCommand(PaivitaMokki, connection))
                 {
                     Command.Parameters.AddWithValue("@MokkiID", int.Parse(mokkiID.Text));
@@ -268,6 +269,7 @@ public partial class LisaysSivu : ContentPage
                     Command.Parameters.AddWithValue("@kuvaus", kuvaus);
                     Command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
                     Command.Parameters.AddWithValue("@hinta", hinta);
+                    Command.Parameters.AddWithValue("@nimi", HiddenEntry3.Text);
                     await Command.ExecuteNonQueryAsync();
 
                     var updatedMokki = MokkiList.FirstOrDefault(m => m.MokkiID == int.Parse(mokkiID.Text));
