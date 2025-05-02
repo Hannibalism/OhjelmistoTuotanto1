@@ -30,6 +30,10 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new PalveluRaporttiPage());
     }
+    private void MajoitusRaportClicked(object sender, EventArgs e) 
+    {
+        Navigation.PushAsync (new MajoitusRaport());
+    }
     private async void OnDatabaseClicked(object sender, EventArgs e)
     {
         DatabaseConnection dbc = new DatabaseConnection();
