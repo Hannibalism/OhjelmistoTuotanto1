@@ -144,6 +144,7 @@ namespace OhjelmistoTuotanto1.ViewModels
 
                 await Database.InsertInvoiceAsync(new Lasku
                 {
+                    LaskuId = varausId,
                     VarausId = varausId,
                     Summa = total,
                     Alv = total * 0.24,
