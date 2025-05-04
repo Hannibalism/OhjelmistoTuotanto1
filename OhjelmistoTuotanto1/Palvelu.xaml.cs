@@ -17,7 +17,7 @@ public partial class PalveluSivu : ContentPage
     private async void palvelulisays_Clicked(object sender, EventArgs e)
     {
         var selectedPalvelu = palveluPicker.SelectedItem as Palvelu;
-
+        int palveluid = int.Parse(PalveluID.Text);
         string palvelunimi = Palvelunimi.Text;
         string kuvaus = Kuvaus.Text;
         double hinta, alv;
@@ -44,7 +44,7 @@ public partial class PalveluSivu : ContentPage
         }
         else
         {
-            await InsertData(aluenimi, palvelunimi, kuvaus, hinta, alv);
+            await InsertData(palveluid, aluenimi, palvelunimi, kuvaus, hinta, alv);
         }
 
     }
@@ -85,7 +85,7 @@ public partial class PalveluSivu : ContentPage
             }
         }
     }
-    private async Task InsertData(string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
+    private async Task InsertData(int palveluid, string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
     {
         DatabaseConnection dbc = new DatabaseConnection();
         using (var connection = dbc._getConnection())
@@ -113,10 +113,11 @@ public partial class PalveluSivu : ContentPage
                 }
             }
 
-            string addPalvelu = "INSERT INTO vn.palvelu (alue_id, nimi, kuvaus, hinta, alv) " +
-                "VALUES ((SELECT alue_id FROM vn.alue WHERE nimi = @nimi), @palvelunimi, @kuvaus, @hinta, @alv);";
+            string addPalvelu = "INSERT INTO vn.palvelu (palvelu_id, alue_id, nimi, kuvaus, hinta, alv) " +
+                "VALUES (@palveluid, (SELECT alue_id FROM vn.alue WHERE nimi = @nimi), @palvelunimi, @kuvaus, @hinta, @alv);";
             using (var command = new MySqlCommand(addPalvelu, connection))
             {
+                command.Parameters.AddWithValue("@palveluid", palveluid);
                 command.Parameters.AddWithValue("@nimi", aluenimi);
                 command.Parameters.AddWithValue("@palvelunimi", palvelunimi);
                 command.Parameters.AddWithValue("@kuvaus", kuvaus);
@@ -163,6 +164,7 @@ public partial class PalveluSivu : ContentPage
 
         if (selectedPalvelu != null)
         {
+            PalveluID.Text = selectedPalvelu.PalveluId.ToString();
             Palvelunimi.Text = selectedPalvelu.Nimi;
             Kuvaus.Text = selectedPalvelu.Kuvaus;
             Hinta.Text = selectedPalvelu.Hinta.ToString();
