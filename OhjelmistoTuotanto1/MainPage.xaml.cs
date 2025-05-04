@@ -12,8 +12,12 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void LaskuClicked(object sender, EventArgs e) 
+    {
+        Navigation.PushAsync(new Laskuseuranta());
+    }
 
-	private void Mokkilisays(object sender, EventArgs e)
+    private void Mokkilisays(object sender, EventArgs e)
 	{
         Navigation.PushAsync(new LisaysSivu());
     }

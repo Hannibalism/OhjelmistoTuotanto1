@@ -18,6 +18,8 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="" />
 
+            <Button Text="Laskujen seuranta" Clicked="LaskuClicked" CornerRadius="10"
+              Padding="10" />
             <Button Text="Varaa mökki"
               Clicked="MakeReservation"
               CornerRadius="10"
@@ -38,7 +40,8 @@
                     Text="Connect to database"
                     SemanticProperties.Hint="Connects to database"
                     Clicked="OnDatabaseClicked"
-                    HorizontalOptions="Fill" />
+                    HorizontalOptions="Fill" 
+                IsVisible="False"/>
             <Button
                     x:Name="AsiakasHallinta"
                     Text="AsiakasHallinta"
