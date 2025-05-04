@@ -202,7 +202,7 @@ public partial class AsiakasHallinta : ContentPage
     {
         if (string.IsNullOrEmpty(IDEntry.Text))
         {
-            await DisplayAlert("Error", "No customer selected.", "OK");
+            await DisplayAlert("Error", "Ei valittua asiakasta.", "OK");
             return;
         }
 
@@ -213,7 +213,9 @@ public partial class AsiakasHallinta : ContentPage
         {
             connection.Open();
 
-            // Delete related records in varauksen_palvelut
+            // Poistaa asiakkaan varaus palveluista.
+            // Poistaa asiakkaan varaus taulusta.
+            // Poistaa asiakkaan tästä taulusta.
             string deleteRelatedQuery = "DELETE FROM vn.varauksen_palvelut WHERE varaus_id IN (SELECT varaus_id FROM vn.varaus WHERE asiakas_id = @asiakasID);";
             using (var command = new MySqlCommand(deleteRelatedQuery, connection))
             {
@@ -221,7 +223,7 @@ public partial class AsiakasHallinta : ContentPage
                 await command.ExecuteNonQueryAsync();
             }
 
-            // Delete records in varaus
+            
             deleteRelatedQuery = "DELETE FROM vn.varaus WHERE asiakas_id = @asiakasID;";
             using (var command = new MySqlCommand(deleteRelatedQuery, connection))
             {
@@ -229,7 +231,6 @@ public partial class AsiakasHallinta : ContentPage
                 await command.ExecuteNonQueryAsync();
             }
 
-            // Finally, delete the customer
             string deleteQuery = "DELETE FROM vn.asiakas WHERE asiakas_id = @asiakasID;";
             using (var command = new MySqlCommand(deleteQuery, connection))
             {
@@ -244,7 +245,7 @@ public partial class AsiakasHallinta : ContentPage
             AsiakasList.Remove(asiakasToRemove);
         }
 
-        await DisplayAlert("Success", "Customer successfully deleted.", "OK");
+        await DisplayAlert("Success", "Asiakas poistettu onnistuneest.", "OK");
     }
 
     public class Asiakas : INotifyPropertyChanged
