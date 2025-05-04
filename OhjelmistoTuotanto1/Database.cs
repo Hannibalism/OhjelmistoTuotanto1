@@ -188,8 +188,8 @@ namespace OhjelmistoTuotanto1.Data
 
             var cmd = new MySqlCommand(@"
                 INSERT INTO lasku 
-                (varaus_id, summa, alv, maksettu) 
-                VALUES (@varaus_id, @summa, @alv, @maksettu);", conn);
+                (lasku_id, varaus_id, summa, alv, maksettu) 
+                VALUES (@varaus_id, @varaus_id, @summa, @alv, @maksettu);", conn);
 
             cmd.Parameters.AddWithValue("@varaus_id", lasku.VarausId);
             cmd.Parameters.AddWithValue("@summa", lasku.Summa);
