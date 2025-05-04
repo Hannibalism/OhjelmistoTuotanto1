@@ -13,5 +13,7 @@ namespace OhjelmistoTuotanto1.Models
         public double Summa { get; set; }
         public double Alv { get; set; }
         public bool Maksettu { get; set; }
+        public string asiakasnimi { get; set; }
+        public string Katuosoite { get; set; }
     }
 }
