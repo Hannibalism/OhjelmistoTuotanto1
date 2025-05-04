@@ -68,6 +68,13 @@
                 Clicked="palvelulisays_Clicked"
                 Text="Yhdistä ja lisää tietokantaan"
              WidthRequest="300"/>
+
+
+            <Button
+                x:Name="Poista"
+                Clicked="Poista_Clicked"
+                Text="Poista"
+                WidthRequest="300"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

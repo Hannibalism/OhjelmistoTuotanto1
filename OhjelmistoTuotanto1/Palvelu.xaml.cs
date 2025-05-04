@@ -14,6 +14,57 @@ public partial class PalveluSivu : ContentPage
 		InitializeComponent();
 		LoadPalvelut();
 	}
+
+    private async void Poista_Clicked(object sender, EventArgs e)
+    {
+        var selectedPalvelu = palveluPicker.SelectedItem as Palvelu;
+
+        if (selectedPalvelu == null)
+        {
+            await DisplayAlert("Virhe", "Valitse poistettava palvelu.", "Ok");
+            return;
+        }
+
+        bool confirm = await DisplayAlert("Vahvista poisto",
+            $"Haluatko varmasti poistaa palvelun \"{selectedPalvelu.Nimi}\"?", "Kyllä", "Peruuta");
+
+        if (!confirm) return;
+
+        DatabaseConnection dbc = new DatabaseConnection();
+        using (var connection = dbc._getConnection())
+        {
+            await connection.OpenAsync();
+
+            // 1. Poista ensin viittaukset varauksen_palvelut -taulusta
+            string deleteDependencies = "DELETE FROM vn.varauksen_palvelut WHERE palvelu_id = @id";
+            using (var deleteCommand = new MySqlCommand(deleteDependencies, connection))
+            {
+                deleteCommand.Parameters.AddWithValue("@id", selectedPalvelu.PalveluId);
+                await deleteCommand.ExecuteNonQueryAsync();
+            }
+
+            // 2. Poista palvelu-taulusta
+            string deleteQuery = "DELETE FROM vn.palvelu WHERE palvelu_id = @id";
+            using (var command = new MySqlCommand(deleteQuery, connection))
+            {
+                command.Parameters.AddWithValue("@id", selectedPalvelu.PalveluId);
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
+        // Tyhjennä käyttöliittymä ja päivitä
+        Palvelunimi.Text = "";
+        Kuvaus.Text = "";
+        Hinta.Text = "";
+        Alv.Text = "";
+        Alue.Text = "";
+        palveluPicker.SelectedItem = null;
+
+        await DisplayAlert("Poistettu", "Palvelu poistettiin onnistuneesti.", "Ok");
+
+        LoadPalvelut();
+    }
+
     private async void palvelulisays_Clicked(object sender, EventArgs e)
     {
         var selectedPalvelu = palveluPicker.SelectedItem as Palvelu;
@@ -22,6 +73,18 @@ public partial class PalveluSivu : ContentPage
         string kuvaus = Kuvaus.Text;
         double hinta, alv;
         string aluenimi = Alue.Text;
+
+
+        if (string.IsNullOrWhiteSpace(palvelunimi) ||
+        string.IsNullOrWhiteSpace(kuvaus) ||
+        string.IsNullOrWhiteSpace(Hinta.Text) ||
+        string.IsNullOrWhiteSpace(Alv.Text) ||
+        string.IsNullOrWhiteSpace(aluenimi))
+        {
+            await DisplayAlert("Virhe", "Kaikki kentät täytyy täyttää.", "Ok");
+            return;
+        }
+
 
         if (palvelunimi.Length > 45)
         {
@@ -82,7 +145,18 @@ public partial class PalveluSivu : ContentPage
                 command.Parameters.AddWithValue("@alv", alv);
                 command.Parameters.AddWithValue("@id", palveluId);
                 await command.ExecuteNonQueryAsync();
+
+
+                Palvelunimi.Text = "";
+                Kuvaus.Text = "";
+                Hinta.Text = "";
+                Alv.Text = "";
+                Alue.Text = "";
+                palveluPicker.SelectedItem = null;
+
+                LoadPalvelut();
             }
+
         }
     }
     private async Task InsertData(int palveluid, string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
@@ -124,6 +198,15 @@ public partial class PalveluSivu : ContentPage
                 command.Parameters.AddWithValue("@hinta", hinta);
                 command.Parameters.AddWithValue("@alv", alv);
                 await command.ExecuteNonQueryAsync();
+
+
+                Palvelunimi.Text = "";
+                Kuvaus.Text = "";
+                Hinta.Text = "";
+                Alv.Text = "";
+                Alue.Text = "";
+
+                LoadPalvelut();
             }
         }
 
