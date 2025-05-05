@@ -12,12 +12,7 @@
         
                 ItemDisplayBinding="{Binding Nimi}"
                 SelectedIndexChanged="PalveluPicker_SelectedIndexChanged" />
-            <Label Text="Palvelu ID"
-                   HorizontalOptions="Center"></Label>
-            <Entry Placeholder="Palvelu ID" 
-                   x:Name="PalveluID"
-                   WidthRequest="600">
-            </Entry>
+
             <Label 
                 Text="Palvelun nimi"
                 VerticalOptions="Center" 
@@ -68,7 +63,6 @@
                 Clicked="palvelulisays_Clicked"
                 Text="Yhdistä ja lisää tietokantaan"
              WidthRequest="300"/>
-
 
             <Button
                 x:Name="Poista"

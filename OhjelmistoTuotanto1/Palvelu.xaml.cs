@@ -9,11 +9,11 @@ namespace OhjelmistoTuotanto1;
 
 public partial class PalveluSivu : ContentPage
 {
-	public PalveluSivu()
-	{
-		InitializeComponent();
-		LoadPalvelut();
-	}
+    public PalveluSivu()
+    {
+        InitializeComponent();
+        LoadPalvelut();
+    }
 
     private async void Poista_Clicked(object sender, EventArgs e)
     {
@@ -64,27 +64,24 @@ public partial class PalveluSivu : ContentPage
 
         LoadPalvelut();
     }
-
     private async void palvelulisays_Clicked(object sender, EventArgs e)
     {
         var selectedPalvelu = palveluPicker.SelectedItem as Palvelu;
-        int palveluid = int.Parse(PalveluID.Text);
+
         string palvelunimi = Palvelunimi.Text;
         string kuvaus = Kuvaus.Text;
         double hinta, alv;
         string aluenimi = Alue.Text;
 
-
         if (string.IsNullOrWhiteSpace(palvelunimi) ||
-        string.IsNullOrWhiteSpace(kuvaus) ||
-        string.IsNullOrWhiteSpace(Hinta.Text) ||
-        string.IsNullOrWhiteSpace(Alv.Text) ||
-        string.IsNullOrWhiteSpace(aluenimi))
+      string.IsNullOrWhiteSpace(kuvaus) ||
+      string.IsNullOrWhiteSpace(Hinta.Text) ||
+      string.IsNullOrWhiteSpace(Alv.Text) ||
+      string.IsNullOrWhiteSpace(aluenimi))
         {
             await DisplayAlert("Virhe", "Kaikki kentät täytyy täyttää.", "Ok");
             return;
         }
-
 
         if (palvelunimi.Length > 45)
         {
@@ -107,7 +104,7 @@ public partial class PalveluSivu : ContentPage
         }
         else
         {
-            await InsertData(palveluid, aluenimi, palvelunimi, kuvaus, hinta, alv);
+            await InsertData(aluenimi, palvelunimi, kuvaus, hinta, alv);
         }
 
     }
@@ -147,6 +144,7 @@ public partial class PalveluSivu : ContentPage
                 await command.ExecuteNonQueryAsync();
 
 
+
                 Palvelunimi.Text = "";
                 Kuvaus.Text = "";
                 Hinta.Text = "";
@@ -156,10 +154,9 @@ public partial class PalveluSivu : ContentPage
 
                 LoadPalvelut();
             }
-
         }
     }
-    private async Task InsertData(int palveluid, string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
+    private async Task InsertData(string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
     {
         DatabaseConnection dbc = new DatabaseConnection();
         using (var connection = dbc._getConnection())
@@ -187,18 +184,16 @@ public partial class PalveluSivu : ContentPage
                 }
             }
 
-            string addPalvelu = "INSERT INTO vn.palvelu (palvelu_id, alue_id, nimi, kuvaus, hinta, alv) " +
-                "VALUES (@palveluid, (SELECT alue_id FROM vn.alue WHERE nimi = @nimi), @palvelunimi, @kuvaus, @hinta, @alv);";
+            string addPalvelu = "INSERT INTO vn.palvelu (alue_id, nimi, kuvaus, hinta, alv) " +
+                "VALUES ((SELECT alue_id FROM vn.alue WHERE nimi = @nimi), @palvelunimi, @kuvaus, @hinta, @alv);";
             using (var command = new MySqlCommand(addPalvelu, connection))
             {
-                command.Parameters.AddWithValue("@palveluid", palveluid);
                 command.Parameters.AddWithValue("@nimi", aluenimi);
                 command.Parameters.AddWithValue("@palvelunimi", palvelunimi);
                 command.Parameters.AddWithValue("@kuvaus", kuvaus);
                 command.Parameters.AddWithValue("@hinta", hinta);
                 command.Parameters.AddWithValue("@alv", alv);
                 await command.ExecuteNonQueryAsync();
-
 
                 Palvelunimi.Text = "";
                 Kuvaus.Text = "";
@@ -247,7 +242,6 @@ public partial class PalveluSivu : ContentPage
 
         if (selectedPalvelu != null)
         {
-            PalveluID.Text = selectedPalvelu.PalveluId.ToString();
             Palvelunimi.Text = selectedPalvelu.Nimi;
             Kuvaus.Text = selectedPalvelu.Kuvaus;
             Hinta.Text = selectedPalvelu.Hinta.ToString();
