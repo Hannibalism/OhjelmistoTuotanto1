@@ -5,6 +5,12 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
+using System.Reflection.Metadata;
+using System.ComponentModel;
+using QuestPDF.Helpers;
+
 namespace OhjelmistoTuotanto1;
 
 public partial class Laskuseuranta : ContentPage
@@ -18,19 +24,19 @@ public partial class Laskuseuranta : ContentPage
         LoadLaskut();
         BindingContext = this;
     }
-    private void UpdateStatusClicked(object sender, EventArgs e) 
+    private void UpdateStatusClicked(object sender, EventArgs e)
     {
-            DatabaseConnection dbc = new DatabaseConnection();
-            using (var connection = dbc._getConnection())
-            {
-                connection.Open();
-                var command = new MySqlCommand(@"
+        DatabaseConnection dbc = new DatabaseConnection();
+        using (var connection = dbc._getConnection())
+        {
+            connection.Open();
+            var command = new MySqlCommand(@"
                 UPDATE lasku 
                 SET maksettu = @maksettu 
                 WHERE lasku_id = @laskuId", connection);
-                command.Parameters.AddWithValue("@maksettu", MaksuStatus.Text);
-                command.Parameters.AddWithValue("@laskuId", LaskuID.Text);
-                command.ExecuteNonQuery();
+            command.Parameters.AddWithValue("@maksettu", MaksuStatus.Text);
+            command.Parameters.AddWithValue("@laskuId", LaskuID.Text);
+            command.ExecuteNonQuery();
             Laskut.Clear();
             LoadLaskut();
         }
@@ -49,7 +55,7 @@ public partial class Laskuseuranta : ContentPage
         }
     }
 
-            private void LoadLaskut()
+    private void LoadLaskut()
     {
         DatabaseConnection dbc = new DatabaseConnection();
         using (var connection = dbc._getConnection())
@@ -78,26 +84,46 @@ public partial class Laskuseuranta : ContentPage
             }
         }
     }
-    private void SaveToJsonFile(ObservableCollection<Lasku> laskut)
+    private void TulostaClicked(object sender, EventArgs e)
     {
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
+        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string pdfFilePath = System.IO.Path.Combine(documentsPath, "Lasku.pdf");
 
-        string json = JsonSerializer.Serialize(laskut, options);
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Laskut.json");
 
-        using (FileStream fs = new FileStream(filePath, FileMode.Create))
+        QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+        QuestPDF.Fluent.Document.Create(container =>
         {
-            using (StreamWriter writer = new StreamWriter(fs))
-            {
-                writer.Write(json);
-            }
-        }
-    }
-    private void TulostaClicked(object sender, EventArgs e) 
-    {
-        SaveToJsonFile(Laskut);
-    }
+            container.Page(page =>
+                    {
+                        page.Size(PageSizes.A4);
+                        page.Header()
+                        .Text("Lasku")
+                        .SemiBold().FontSize(35);
+                        page.Content()
+                .Column(x =>
+                {
+                    x.Spacing(10);
+                    x.Item().Text("Teille on lasku Village Newbies Oy:lta");
+                    x.Item().Text("Asiakasnimi: " + Varaaja.Text);
+                    x.Item().Text("Osoite: " + Osoite.Text);
+                    x.Item().Text("Laskun numero: " + LaskuID.Text);
+                    x.Item().Text("Varauksen numero: " + VarausID.Text);
+                    x.Item().Text("Laskun summa: " + Summa.Text);
+                    x.Item().Text("Veron osuus: " + ALV.Text + "€");
+                    x.Item().Text("Viite: XXXXXXXXXXXX");
+                    x.Item().Text("Tilinumero: FIXXXXXXXXXXX");
+                    x.Item().Text("Päiväys: " + DateTime.Now.ToString());
+                });
+                        page.Footer()
+                    .AlignCenter()
+                    .Text(x =>
+                    {
+                        x.Span("Sivu ");
+                        x.CurrentPageNumber();
+                    });
+                    });
+
+        }).GeneratePdf(pdfFilePath);
+
+    } 
 }

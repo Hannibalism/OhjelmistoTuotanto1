@@ -26,7 +26,7 @@
                                 <Label Text="{Binding LaskuId, StringFormat='LaskuID: {0}'}" />
                                 <Label Text="{Binding VarausId, StringFormat='VarausID: {0} '}" />
                                 <Label Text="{Binding Summa, StringFormat='Hinta: {0:C}'}" />
-                                <Label Text="{Binding Alv, StringFormat='Veron osuus: {0}'}" />
+                                <Label Text="{Binding Alv, StringFormat='Veron osuus: {0:C}'}" />
                                 <Label Text="{Binding Maksettu, StringFormat='Maksettu: {0}'}" />
                             </StackLayout>
                         </Frame>
