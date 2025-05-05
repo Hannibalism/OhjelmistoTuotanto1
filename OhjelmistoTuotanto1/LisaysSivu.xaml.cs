@@ -9,6 +9,7 @@ using System.Diagnostics.Eventing.Reader;
 using Microsoft.Maui.ApplicationModel.Communication;
 using System.ComponentModel;
 using Org.BouncyCastle.Security;
+using Google.Protobuf.WellKnownTypes;
 
 namespace OhjelmistoTuotanto1;
 
@@ -133,6 +134,54 @@ public partial class LisaysSivu : ContentPage
     //Mökkitaulun omat tiedot lisätään suoraan tekstikentistä.
     private async void LisaysNappi(object sender, EventArgs e)
     {
+        if (Mokkinimi.Text == null || Mokkinimi.Text == string.Empty)
+        {
+            await DisplayAlert("Virhe", "Mökkinimi ei saa olla tyhjä.", "Ok");
+            return;
+        }
+
+        else if (Postinro.Text == string.Empty || Postinro.Text == null)
+        {
+            await DisplayAlert("Virhe", "Postinro ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (Toimipaikka.Text == string.Empty || Toimipaikka.Text == null)
+        {
+            await DisplayAlert("Virhe", "Toimipaikka ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (Katuosoite.Text == string.Empty || Katuosoite.Text == null)
+        {
+            await DisplayAlert("Virhe", "Katuosoite ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (Hinta.Text == string.Empty | Hinta.Text == null)
+        {
+            await DisplayAlert("Virhe", "Hinta ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (Kuvaus.Text == string.Empty | Kuvaus.Text == null)
+        {
+            await DisplayAlert("Virhe", "Kuvaus ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (HiddenEntry3.Text == string.Empty | HiddenEntry3.Text == null) 
+        {
+            await DisplayAlert("Virhe", "Henkilömäärä ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (Henkilomaara.Text == string.Empty | Henkilomaara.Text == null)
+        {
+            await DisplayAlert("Virhe", "Henkilömäärä ei saa olla tyhjä.", "Ok");
+            return;
+        }
+
+        else if (Varustelu.Text == string.Empty | Varustelu.Text == null)
+        {
+            await DisplayAlert("Virhe", "Varustelu kenttä ei saa olla tyhjä.", "Ok");
+            return;
+        }
+
         string mokkinimi = Mokkinimi.Text;
         string postinro = Postinro.Text;
         string toimipaikka = Toimipaikka.Text;
@@ -148,7 +197,7 @@ public partial class LisaysSivu : ContentPage
             await DisplayAlert("Virhe", "Mökinnimi saa olla max 45 merkkiä", "Ok");
             return;
         }
-        if (katuosoite.Length > 45)
+        else if (katuosoite.Length > 45)
         {
             await DisplayAlert("Virhe", "Katuosoite saa olla max 45 merkkiä", "Ok");
             return;
