@@ -214,6 +214,63 @@
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Black.ttf">
+      <PackagePath>LatoFont\Lato-Black.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-BlackItalic.ttf">
+      <PackagePath>LatoFont\Lato-BlackItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Bold.ttf">
+      <PackagePath>LatoFont\Lato-Bold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-BoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-BoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraBold.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraLight.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLight.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraLightItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLightItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Italic.ttf">
+      <PackagePath>LatoFont\Lato-Italic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Light.ttf">
+      <PackagePath>LatoFont\Lato-Light.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-LightItalic.ttf">
+      <PackagePath>LatoFont\Lato-LightItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Medium.ttf">
+      <PackagePath>LatoFont\Lato-Medium.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-MediumItalic.ttf">
+      <PackagePath>LatoFont\Lato-MediumItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Regular.ttf">
+      <PackagePath>LatoFont\Lato-Regular.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-SemiBold.ttf">
+      <PackagePath>LatoFont\Lato-SemiBold.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-SemiBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-SemiBoldItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Thin.ttf">
+      <PackagePath>LatoFont\Lato-Thin.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ThinItalic.ttf">
+      <PackagePath>LatoFont\Lato-ThinItalic.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\OFL.txt">
+      <PackagePath>LatoFont\OFL.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.deps.json">
       <PackagePath>OhjelmistoTuotanto1.deps.json</PackagePath>
     </AppxPackagedFile>
@@ -342,6 +399,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\mysqlconnector\2.2.5\lib\net7.0\MySqlConnector.dll">
       <PackagePath>MySqlConnector.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\lib\net8.0\QuestPDF.dll">
+      <PackagePath>QuestPDF.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\system.configuration.configurationmanager\8.0.0\lib\net8.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
@@ -498,6 +558,21 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\mysql.data\9.2.0\runtimes\win-x64\native\krbcc64.dll">
       <PackagePath>krbcc64.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\QuestPdfSkia.dll">
+      <PackagePath>QuestPdfSkia.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libgcc_s_seh-1.dll">
+      <PackagePath>libgcc_s_seh-1.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libstdc++-6.dll">
+      <PackagePath>libstdc++-6.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libwinpthread-1.dll">
+      <PackagePath>libwinpthread-1.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\qpdf.dll">
+      <PackagePath>qpdf.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

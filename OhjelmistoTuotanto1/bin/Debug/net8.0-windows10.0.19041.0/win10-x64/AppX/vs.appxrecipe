@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-05-04T17:00:23.052</Modified>
+      <Modified>2025-05-05T18:14:13.020</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-24T18:44:46.677</Modified>
+      <Modified>2025-05-05T15:51:48.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.runtimeconfig.json">
       <PackagePath>OhjelmistoTuotanto1.runtimeconfig.json</PackagePath>
-      <Modified>2025-04-01T15:15:11.088</Modified>
+      <Modified>2025-05-05T15:51:48.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.dll">
       <PackagePath>OhjelmistoTuotanto1.dll</PackagePath>
-      <Modified>2025-05-04T17:00:22.592</Modified>
+      <Modified>2025-05-05T15:51:47.505</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>OhjelmistoTuotanto1.exe</PackagePath>
-      <Modified>2025-05-04T17:00:22.598</Modified>
+      <Modified>2025-05-05T15:51:47.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -285,9 +285,85 @@
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
       <Modified>2025-04-01T15:03:43.504</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Black.ttf">
+      <PackagePath>LatoFont\Lato-Black.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-BlackItalic.ttf">
+      <PackagePath>LatoFont\Lato-BlackItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Bold.ttf">
+      <PackagePath>LatoFont\Lato-Bold.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-BoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-BoldItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraBold.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBold.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBoldItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraLight.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLight.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ExtraLightItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLightItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Italic.ttf">
+      <PackagePath>LatoFont\Lato-Italic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Light.ttf">
+      <PackagePath>LatoFont\Lato-Light.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-LightItalic.ttf">
+      <PackagePath>LatoFont\Lato-LightItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Medium.ttf">
+      <PackagePath>LatoFont\Lato-Medium.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-MediumItalic.ttf">
+      <PackagePath>LatoFont\Lato-MediumItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Regular.ttf">
+      <PackagePath>LatoFont\Lato-Regular.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-SemiBold.ttf">
+      <PackagePath>LatoFont\Lato-SemiBold.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-SemiBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-SemiBoldItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-Thin.ttf">
+      <PackagePath>LatoFont\Lato-Thin.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\Lato-ThinItalic.ttf">
+      <PackagePath>LatoFont\Lato-ThinItalic.ttf</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\LatoFont\OFL.txt">
+      <PackagePath>LatoFont\OFL.txt</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\OhjelmistoTuotanto1.deps.json">
       <PackagePath>OhjelmistoTuotanto1.deps.json</PackagePath>
-      <Modified>2025-04-24T18:44:46.082</Modified>
+      <Modified>2025-05-05T15:51:48.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.31\lib\net6.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -456,6 +532,10 @@
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\mysqlconnector\2.2.5\lib\net7.0\MySqlConnector.dll">
       <PackagePath>MySqlConnector.dll</PackagePath>
       <Modified>2023-01-01T21:32:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\lib\net8.0\QuestPDF.dll">
+      <PackagePath>QuestPDF.dll</PackagePath>
+      <Modified>2025-05-01T00:37:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\system.configuration.configurationmanager\8.0.0\lib\net8.0\System.Configuration.ConfigurationManager.dll">
       <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
@@ -664,6 +744,26 @@
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\mysql.data\9.2.0\runtimes\win-x64\native\krbcc64.dll">
       <PackagePath>krbcc64.dll</PackagePath>
       <Modified>2024-12-18T12:28:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\QuestPdfSkia.dll">
+      <PackagePath>QuestPdfSkia.dll</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libgcc_s_seh-1.dll">
+      <PackagePath>libgcc_s_seh-1.dll</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libstdc++-6.dll">
+      <PackagePath>libstdc++-6.dll</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\libwinpthread-1.dll">
+      <PackagePath>libwinpthread-1.dll</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\questpdf\2025.4.2\runtimes\win-x64\native\qpdf.dll">
+      <PackagePath>qpdf.dll</PackagePath>
+      <Modified>2025-05-01T00:31:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\eemi9\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

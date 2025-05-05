@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Z+5AEF62Eh3LAxb6AmVepeH/rgO6QqQ55kGH337gruODbiThVszvnnTWdVZR2C5Bk1diBoESmMh1a1SOak6QFA==",
+  "dgSpecHash": "HqTTklRKuqATCQd12rQIME4Q6nXjWLH+aw+EzaDNWDp1Bk9BoeO3tkDL5UdX/KaRsO5aw/jTwZ7bgkjZdcrg6Q==",
   "success": true,
   "projectFilePath": "C:\\Temp\\OhjelmistoTuotanto 1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\eemi9\\.nuget\\packages\\microsoft.windowsappsdk\\1.5.240802000\\microsoft.windowsappsdk.1.5.240802000.nupkg.sha512",
     "C:\\Users\\eemi9\\.nuget\\packages\\mysql.data\\9.2.0\\mysql.data.9.2.0.nupkg.sha512",
     "C:\\Users\\eemi9\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\eemi9\\.nuget\\packages\\questpdf\\2025.4.2\\questpdf.2025.4.2.nupkg.sha512",
     "C:\\Users\\eemi9\\.nuget\\packages\\runtime.any.system.io\\4.3.0\\runtime.any.system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\eemi9\\.nuget\\packages\\runtime.any.system.reflection\\4.3.0\\runtime.any.system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\eemi9\\.nuget\\packages\\runtime.any.system.reflection.primitives\\4.3.0\\runtime.any.system.reflection.primitives.4.3.0.nupkg.sha512",
