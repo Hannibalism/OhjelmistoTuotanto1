@@ -80,6 +80,44 @@ public partial class AsiakasHallinta : ContentPage
     }
     private async void Lisaa(object sender, EventArgs e)
     {
+        if (EtunimiEntry.Text == string.Empty | EtunimiEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Etunimi ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (SukunimiEntry.Text == string.Empty | SukunimiEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Sukunimi ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (PostinumeroEntry.Text == string.Empty | PostinumeroEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Postinumero ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (LahiosoiteEntry.Text == string.Empty | LahiosoiteEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Lahiosoite ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (emailEntry.Text == string.Empty | emailEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "sähköposti ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (PuhelinnumeroEntry.Text == string.Empty | PuhelinnumeroEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Puhelinnumero ei saa olla tyhjä.", "Ok");
+            return;
+        }
+        else if (ToimipaikkaEntry.Text == string.Empty | ToimipaikkaEntry.Text == null)
+        {
+            await DisplayAlert("Virhe", "Toimipaikka ei saa olla tyhjä.", "Ok");
+            return;
+        }
+
+
+
         string asiakasid = IDEntry.Text;
         string etunimi = EtunimiEntry.Text;
         string sukunimi = SukunimiEntry.Text;
@@ -89,6 +127,7 @@ public partial class AsiakasHallinta : ContentPage
         string puhelinnumero = PuhelinnumeroEntry.Text;
         string toimipaikka = ToimipaikkaEntry.Text;
         await InsertData(asiakasid, etunimi, sukunimi, postinumero, lahiosoite, email, puhelinnumero, toimipaikka);
+
     }
     private async Task InsertData(string asiakasid, string etunimi, string sukunimi, string postinumero, string lahiosoite, string email, string puhelinnumero, string toimipaikka)
     {
