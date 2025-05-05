@@ -110,6 +110,7 @@ public partial class PalveluSivu : ContentPage
     }
     private async Task UpdateData(int palveluId, string aluenimi, string palvelunimi, string kuvaus, double hinta, double alv)
     {
+        //Tietojen p‰ivitystapahtuu kun listasta valitaan jokin jo tietokannassa oleva tieto.
         DatabaseConnection dbc = new DatabaseConnection();
         using (var connection = dbc._getConnection())
         {
@@ -131,7 +132,7 @@ public partial class PalveluSivu : ContentPage
                     }
                 }
             }
-
+            
             string updatePalvelu = "UPDATE vn.palvelu SET alue_id = (SELECT alue_id FROM vn.alue WHERE nimi = @nimi), nimi = @palvelunimi, kuvaus = @kuvaus, hinta = @hinta, alv = @alv WHERE palvelu_id = @id";
             using (var command = new MySqlCommand(updatePalvelu, connection))
             {
@@ -161,6 +162,7 @@ public partial class PalveluSivu : ContentPage
         DatabaseConnection dbc = new DatabaseConnection();
         using (var connection = dbc._getConnection())
         {
+            //Jos listasta ei valita mit‰‰n ohjelma lis‰‰ uudet tiedot.
             connection.Open();
 
             string aluetarkistus = "SELECT COUNT(*) FROM vn.alue WHERE nimi = @nimi;";
