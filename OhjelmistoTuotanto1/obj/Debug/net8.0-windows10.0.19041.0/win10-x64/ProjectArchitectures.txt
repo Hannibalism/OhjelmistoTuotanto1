@@ -1,1 +1,1 @@
-C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\OhjelmistoTuotanto1.csproj;x64
+C:\Users\jaakk\Source\Repos\OhjelmistoTuotanto1\OhjelmistoTuotanto1\OhjelmistoTuotanto1.csproj;x64
