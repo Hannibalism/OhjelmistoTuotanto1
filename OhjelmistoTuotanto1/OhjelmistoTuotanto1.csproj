@@ -66,9 +66,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="LaskutusSivu.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="LisaysSivu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
