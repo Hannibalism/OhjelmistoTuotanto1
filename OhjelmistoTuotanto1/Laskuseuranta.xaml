@@ -14,6 +14,7 @@
             <Entry x:Name="MaksuStatus" Placeholder="Maksun tila" WidthRequest="600" />
 
             <Button Text="Tulosta lasku" Clicked="TulostaClicked" Margin="10"/>
+ 
             <Button Text="Päivitä maksuntila" Clicked="UpdateStatusClicked" Margin="10"/>
 
             <CollectionView ItemsSource="{Binding Laskut}" SelectionMode="Single" SelectionChanged="OnCollectionViewSelectionChanged">

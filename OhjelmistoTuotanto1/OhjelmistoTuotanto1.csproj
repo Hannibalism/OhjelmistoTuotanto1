@@ -62,9 +62,13 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="MySql.Data" Version="9.2.0" />
 		<PackageReference Include="MySqlConnector" Version="2.2.5" />
+		<PackageReference Include="QuestPDF" Version="2025.4.2" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="LaskutusSivu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LisaysSivu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

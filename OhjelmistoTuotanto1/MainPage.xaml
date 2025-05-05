@@ -18,13 +18,11 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="" />
 
-            <Button Text="Laskujen seuranta" Clicked="LaskuClicked" CornerRadius="10"
-              Padding="10" />
             <Button Text="Varaa mökki"
               Clicked="MakeReservation"
               CornerRadius="10"
               Padding="10" />
-
+            
             <Button Text="Mökkien suodatus"
               Clicked="OnNavigateToFilterPage"
               CornerRadius="10"
@@ -60,6 +58,12 @@
               Clicked="OnNavigateToServicesPage"
               CornerRadius="10"
               Padding="10" />
+
+            <Button x:Name="Laskutus"
+            Text="Laskutus" 
+            SemanticProperties.Hint="Vie laskutus sivulle"
+            Clicked="Laskutus_Clicked"
+            HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 

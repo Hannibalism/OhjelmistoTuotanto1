@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OhjelmistoTuotanto1.LaskutusSivu"
+             Title="Laskutus">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Asiakas:" />
+            <Label x:Name="Varaaja" Text="Asiakas nimi" />
+
+            <Label Text="Osoite:" />
+            <Label x:Name="Osoite" Text="Asiakas osoite" />
+
+            <Label Text="Summa" />
+            <Entry x:Name="Summa" Placeholder="Summa" Keyboard="Numeric" />
+
+            <Label Text="ALV" />
+            <Entry x:Name="Alv" Placeholder="ALV (%)" Keyboard="Numeric" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Maksettu?" VerticalOptions="Center" />
+                <Switch x:Name="MaksettuSwitch" />
+            </StackLayout>
+
+            <Button Text="Päivitä Lasku" Clicked="Lisaalasku_Clicked" />
+            <Button Text="Tulosta lasku" Clicked="TulostaClicked" Margin="10"/>
+
+            
+
+            <Label Text="Laskut tietokannasta:" FontAttributes="Bold" />
+
+            <CollectionView x:Name="laskutView"
+                            SelectionMode="Single"
+                            SelectionChanged="LaskuValittu">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5" Orientation="Vertical">
+                            <Label Text="{Binding LaskuId, StringFormat='Lasku #{0}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding asiakasnimi}" />
+                            <Label Text="{Binding Summa, StringFormat='Summa: {0:F2} €'}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

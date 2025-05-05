@@ -8,89 +8,105 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OhjelmistoTuotanto1
-build_property.ProjectDir = C:\Temp\OhjelmistoTuotanto 1\OhjelmistoTuotanto1\OhjelmistoTuotanto1\
+build_property.ProjectDir = C:\Users\mkotu\source\repos\OhjelmistoTuotanto1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTAotOptimizerEnabled = true
+build_property.CsWinRTAotExportsEnabled = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptIn = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptOut = 
+build_property.CsWinRTCcwLookupTableGeneratorEnabled = true
+build_property.CsWinRTMergeReferencedActivationFactories = 
+build_property.CsWinRTAotWarningLevel = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/Aluehallinta.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/Aluehallinta.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Aluehallinta.xaml
 build_metadata.AdditionalFiles.TargetPath = Aluehallinta.xaml
 build_metadata.AdditionalFiles.RelativePath = Aluehallinta.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/App.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/AppShell.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/AsiakasHallinta.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/AsiakasHallinta.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.AsiakasHallinta.xaml
 build_metadata.AdditionalFiles.TargetPath = AsiakasHallinta.xaml
 build_metadata.AdditionalFiles.RelativePath = AsiakasHallinta.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/FilterPage.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/FilterPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.FilterPage.xaml
 build_metadata.AdditionalFiles.TargetPath = FilterPage.xaml
 build_metadata.AdditionalFiles.RelativePath = FilterPage.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/Laskuseuranta.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/Laskuseuranta.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Laskuseuranta.xaml
 build_metadata.AdditionalFiles.TargetPath = Laskuseuranta.xaml
 build_metadata.AdditionalFiles.RelativePath = Laskuseuranta.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/LisaysSivu.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/LaskutusSivu.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.LaskutusSivu.xaml
+build_metadata.AdditionalFiles.TargetPath = LaskutusSivu.xaml
+build_metadata.AdditionalFiles.RelativePath = LaskutusSivu.xaml
+
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/LisaysSivu.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.LisaysSivu.xaml
 build_metadata.AdditionalFiles.TargetPath = LisaysSivu.xaml
 build_metadata.AdditionalFiles.RelativePath = LisaysSivu.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/MainPage.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/MajoitusRaport.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/MajoitusRaport.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.MajoitusRaport.xaml
 build_metadata.AdditionalFiles.TargetPath = MajoitusRaport.xaml
 build_metadata.AdditionalFiles.RelativePath = MajoitusRaport.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/Palvelu.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/Palvelu.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Palvelu.xaml
 build_metadata.AdditionalFiles.TargetPath = Palvelu.xaml
 build_metadata.AdditionalFiles.RelativePath = Palvelu.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/PalveluRaporttiPage.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/PalveluRaporttiPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.PalveluRaporttiPage.xaml
 build_metadata.AdditionalFiles.TargetPath = PalveluRaporttiPage.xaml
 build_metadata.AdditionalFiles.RelativePath = PalveluRaporttiPage.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/Resources/Styles/Colors.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/Resources/Styles/Styles.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Temp/OhjelmistoTuotanto 1/OhjelmistoTuotanto1/OhjelmistoTuotanto1/VarausSivu.xaml]
+[C:/Users/mkotu/source/repos/OhjelmistoTuotanto1/VarausSivu.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = OhjelmistoTuotanto1.VarausSivu.xaml
 build_metadata.AdditionalFiles.TargetPath = VarausSivu.xaml
