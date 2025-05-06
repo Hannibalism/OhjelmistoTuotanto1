@@ -7,16 +7,16 @@
         <StackLayout Padding="20" Spacing="15">
 
             <Label Text="Asiakas:" />
-            <Label x:Name="Varaaja" Text="Asiakas nimi" />
+            <Label x:Name="Varaaja" />
 
             <Label Text="Osoite:" />
-            <Label x:Name="Osoite" Text="Asiakas osoite" />
+            <Label x:Name="Osoite" />
 
             <Label Text="Summa" />
             <Entry x:Name="Summa" Placeholder="Summa" Keyboard="Numeric" />
 
             <Label Text="ALV" />
-            <Entry x:Name="Alv" Placeholder="ALV (%)" Keyboard="Numeric" />
+            <Entry x:Name="Alv" Placeholder="ALV" Keyboard="Numeric" />
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Maksettu?" VerticalOptions="Center" />

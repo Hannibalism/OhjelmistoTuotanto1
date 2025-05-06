@@ -45,7 +45,7 @@ public partial class LaskutusSivu : ContentPage
                     Summa = reader.GetDouble(2),
                     Alv = reader.GetDouble(3),
                     Maksettu = reader.GetBoolean(4),
-                    asiakasnimi = reader.GetString(5),
+                    asiakasnimi = reader.GetString(5) + (reader.GetBoolean(4) ? " (Maksettu)" : " (Ei maksettu)"),
                     Katuosoite = reader.GetString(6)
                 });
             }

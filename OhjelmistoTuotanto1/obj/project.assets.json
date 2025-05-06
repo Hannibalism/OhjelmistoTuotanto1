@@ -50998,24 +50998,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jaakk\\.nuget\\packages\\": {},
+    "C:\\Users\\mkotu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jaakk\\Source\\Repos\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+      "projectUniqueName": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
       "projectName": "OhjelmistoTuotanto1",
-      "projectPath": "C:\\Users\\jaakk\\Source\\Repos\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
-      "packagesPath": "C:\\Users\\jaakk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jaakk\\Source\\Repos\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1\\obj\\",
+      "projectPath": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj",
+      "packagesPath": "C:\\Users\\mkotu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jaakk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mkotu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
