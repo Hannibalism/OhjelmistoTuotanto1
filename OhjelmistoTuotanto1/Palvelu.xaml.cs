@@ -13,6 +13,7 @@ public partial class PalveluSivu : ContentPage
     {
         InitializeComponent();
         LoadPalvelut();
+        LoadAlueet();
     }
 
     private async void Poista_Clicked(object sender, EventArgs e)
@@ -57,8 +58,9 @@ public partial class PalveluSivu : ContentPage
         Kuvaus.Text = "";
         Hinta.Text = "";
         Alv.Text = "";
-        Alue.Text = "";
-        palveluPicker.SelectedItem = null;
+        AluePickeri.SelectedItem = null;
+        //Alue.Text = "";
+
 
         await DisplayAlert("Poistettu", "Palvelu poistettiin onnistuneesti.", "Ok");
 
@@ -71,13 +73,18 @@ public partial class PalveluSivu : ContentPage
         string palvelunimi = Palvelunimi.Text;
         string kuvaus = Kuvaus.Text;
         double hinta, alv;
-        string aluenimi = Alue.Text;
-
+        string aluenimi = AluePickeri.SelectedItem as string;
+        //string aluenimi = Alue.Text;
+        if (string.IsNullOrWhiteSpace(aluenimi))
+        {
+            await DisplayAlert("Virhe", "Valitse alue.", "Ok");
+            return;
+        }
         if (string.IsNullOrWhiteSpace(palvelunimi) ||
       string.IsNullOrWhiteSpace(kuvaus) ||
       string.IsNullOrWhiteSpace(Hinta.Text) ||
-      string.IsNullOrWhiteSpace(Alv.Text) ||
-      string.IsNullOrWhiteSpace(aluenimi))
+      string.IsNullOrWhiteSpace(Alv.Text))
+        //string.IsNullOrWhiteSpace(aluenimi))
         {
             await DisplayAlert("Virhe", "Kaikki kentät täytyy täyttää.", "Ok");
             return;
@@ -132,7 +139,7 @@ public partial class PalveluSivu : ContentPage
                     }
                 }
             }
-            
+
             string updatePalvelu = "UPDATE vn.palvelu SET alue_id = (SELECT alue_id FROM vn.alue WHERE nimi = @nimi), nimi = @palvelunimi, kuvaus = @kuvaus, hinta = @hinta, alv = @alv WHERE palvelu_id = @id";
             using (var command = new MySqlCommand(updatePalvelu, connection))
             {
@@ -150,7 +157,8 @@ public partial class PalveluSivu : ContentPage
                 Kuvaus.Text = "";
                 Hinta.Text = "";
                 Alv.Text = "";
-                Alue.Text = "";
+                //Alue.Text = "";
+                AluePickeri.SelectedItem = null;
                 palveluPicker.SelectedItem = null;
 
                 LoadPalvelut();
@@ -170,10 +178,10 @@ public partial class PalveluSivu : ContentPage
             {
                 command.Parameters.AddWithValue("@nimi", aluenimi);
                 int count = Convert.ToInt32(await command.ExecuteScalarAsync());
-
+                /*
                 if (count > 0)
                 {
-                    await DisplayAlert("Oho", "Alue on jo olemassa", "Ok");
+                    await DisplayAlert("Ilmoitsus", "Alue on jo olemassa", "Ok");
                 }
                 else if (count == 0)
                 {
@@ -184,6 +192,7 @@ public partial class PalveluSivu : ContentPage
                         await insertCommand.ExecuteNonQueryAsync();
                     }
                 }
+                */
             }
 
             string addPalvelu = "INSERT INTO vn.palvelu (alue_id, nimi, kuvaus, hinta, alv) " +
@@ -201,8 +210,8 @@ public partial class PalveluSivu : ContentPage
                 Kuvaus.Text = "";
                 Hinta.Text = "";
                 Alv.Text = "";
-                Alue.Text = "";
-
+                //Alue.Text = "";
+                AluePickeri.SelectedItem = null;
                 LoadPalvelut();
             }
         }
@@ -255,14 +264,67 @@ public partial class PalveluSivu : ContentPage
             {
                 await connection.OpenAsync();
 
+                AluePickeri.SelectedItem = null;
+
                 string alueQuery = "SELECT nimi FROM vn.alue WHERE alue_id = @alue_id";
                 using (var command = new MySqlCommand(alueQuery, connection))
                 {
                     command.Parameters.AddWithValue("@alue_id", selectedPalvelu.AlueId);
                     var result = await command.ExecuteScalarAsync();
-                    Alue.Text = result?.ToString() ?? "";
+                    var alueNimi = result?.ToString() ?? "";
+
+                    AluePickeri.SelectedItem = AluePickeri.ItemsSource.Cast<string>().FirstOrDefault(x => x == alueNimi);
                 }
             }
         }
     }
+    private void Hinta_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (double.TryParse(Hinta.Text, out double hinta))
+        {
+            double alv = Math.Round(hinta * 0.24, 2);
+            Alv.Text = alv.ToString("F2");
+        }
+        else
+        {
+            Alv.Text = "";
+        }
+    }
+    private async void LoadAlueet()
+    {
+        DatabaseConnection dbc = new DatabaseConnection();
+        var alueet = new List<string>();
+
+        try
+        {
+            using (var connection = dbc._getConnection())
+            {
+                await connection.OpenAsync();
+                string query = "SELECT nimi FROM vn.alue";
+                using (var command = new MySqlCommand(query, connection))
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        alueet.Add(reader.GetString(0));
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Virhe", $"Alueiden lataaminen epäonnistui: {ex.Message}", "Ok");
+        }
+
+        // Varmistetaan, että alueita on ladattu ennen asettamista Pickeriin
+        if (alueet.Any())
+        {
+            AluePickeri.ItemsSource = alueet;
+        }
+        else
+        {
+            await DisplayAlert("Virhe", "Ei alueita löytynyt tietokannasta.", "Ok");
+        }
+    }
+
 }
