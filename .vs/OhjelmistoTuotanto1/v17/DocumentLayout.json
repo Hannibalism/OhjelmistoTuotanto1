@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\mkotu\\source\\repos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\mkotu\\source\\repos\\ohjelmistotuotanto1\\palvelu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\palvelu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\mkotu\\source\\repos\\ohjelmistotuotanto1\\palvelu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\palvelu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|c:\\users\\mkotu\\source\\repos\\ohjelmistotuotanto1\\laskutussivu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA632F9C-7674-47BC-AD65-4830BDCC5261}|OhjelmistoTuotanto1\\OhjelmistoTuotanto1.csproj|solutionrelative:ohjelmistotuotanto1\\laskutussivu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -35,11 +43,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Palvelu.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\Palvelu.xaml.cs",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\Palvelu.xaml.cs",
+              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\Palvelu.xaml.cs*",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\Palvelu.xaml.cs*",
+              "ViewState": "AgIAACMBAAAAAAAAAAAAAEkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T15:16:16.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Palvelu.xaml",
+              "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\Palvelu.xaml",
+              "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\Palvelu.xaml",
+              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\Palvelu.xaml*",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\Palvelu.xaml*",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAuwEEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-07T15:16:08.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LaskutusSivu.xaml",
               "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml",
               "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\LaskutusSivu.xaml",
-              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml*",
-              "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml*",
+              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-06T15:20:00.032Z",
@@ -47,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Lasku.cs",
               "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\Models\\Lasku.cs",
               "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\Models\\Lasku.cs",
@@ -55,12 +89,11 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\Models\\Lasku.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T15:17:43.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:17:43.044Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LaskutusSivu.xaml.cs",
               "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml.cs",
               "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\LaskutusSivu.xaml.cs",
@@ -68,12 +101,11 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T15:14:41.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:14:41.599Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\MainPage.xaml",
               "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\MainPage.xaml",
@@ -81,8 +113,7 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\MainPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-06T15:12:01.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:12:01.212Z"
             }
           ]
         }

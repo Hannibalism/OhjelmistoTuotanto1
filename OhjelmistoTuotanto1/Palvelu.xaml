@@ -38,6 +38,7 @@
             <Entry x:Name="Hinta"
                 Placeholder="Hinta"
                 WidthRequest="600"
+                TextChanged="Hinta_TextChanged"
            />
             <Label 
                 Text="alv"
@@ -52,16 +53,13 @@
             Text="Palvelun alue"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-            <Entry
-            x:Name="Alue"
-            Placeholder="Alue"
-            WidthRequest="600"
-        />
+            <Picker x:Name="AluePickeri" Title="Valitse alue" WidthRequest="600"/>
+
 
             <Button
                  x:Name="palvelulisays"
                 Clicked="palvelulisays_Clicked"
-                Text="Yhdistä ja lisää tietokantaan"
+                Text="Lisää/Muokkaa Palvelu"
              WidthRequest="300"/>
 
             <Button

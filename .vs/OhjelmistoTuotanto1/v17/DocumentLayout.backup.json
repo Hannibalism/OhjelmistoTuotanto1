@@ -38,9 +38,9 @@
               "Title": "LaskutusSivu.xaml",
               "DocumentMoniker": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml",
               "RelativeDocumentMoniker": "OhjelmistoTuotanto1\\LaskutusSivu.xaml",
-              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml*",
-              "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mkotu\\source\\repos\\OhjelmistoTuotanto1\\LaskutusSivu.xaml",
+              "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-06T15:20:00.032Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\Models\\Lasku.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T15:17:43.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:17:43.044Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\LaskutusSivu.xaml.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T15:14:41.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:14:41.599Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "OhjelmistoTuotanto1\\MainPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-06T15:12:01.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T15:12:01.212Z"
             }
           ]
         }
