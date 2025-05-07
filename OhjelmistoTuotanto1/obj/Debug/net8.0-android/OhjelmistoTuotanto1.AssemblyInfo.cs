@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OhjelmistoTuotanto1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4ef1f0006524f551ad4fd7d7be5c7ba249df22d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+081eb1b5947ccdc71482b937aa72a11aff4b447e")]
 [assembly: System.Reflection.AssemblyProductAttribute("OhjelmistoTuotanto1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OhjelmistoTuotanto1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

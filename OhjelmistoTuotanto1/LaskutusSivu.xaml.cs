@@ -20,38 +20,45 @@ public partial class LaskutusSivu : ContentPage
 
     private async void LoadLaskut()
     {
-        DatabaseConnection dbc = new DatabaseConnection();
-        var laskut = new List<Lasku>();
-
-        using (var connection = dbc._getConnection())
+        try
         {
-            await connection.OpenAsync();
-            string query = @"
-               SELECT l.lasku_id, l.varaus_id, l.summa, l.alv, l.maksettu,
-                   CONCAT(a.etunimi, ' ', a.sukunimi) AS asiakasnimi, a.lahiosoite
-            FROM vn.lasku l
-            JOIN vn.varaus v ON l.varaus_id = v.varaus_id
-            JOIN vn.asiakas a ON v.asiakas_id = a.asiakas_id
-            ORDER BY l.lasku_id ASC"; 
+            DatabaseConnection dbc = new DatabaseConnection();
+            var laskut = new List<Lasku>();
 
-            using var command = new MySqlCommand(query, connection);
-            using var reader = await command.ExecuteReaderAsync();
-            while (await reader.ReadAsync())
+            using (var connection = dbc._getConnection())
             {
-                laskut.Add(new Lasku
-                {
-                    LaskuId = reader.GetInt32(0),
-                    VarausId = reader.GetInt32(1),
-                    Summa = reader.GetDouble(2),
-                    Alv = reader.GetDouble(3),
-                    Maksettu = reader.GetBoolean(4),
-                    asiakasnimi = reader.GetString(5) + (reader.GetBoolean(4) ? " (Maksettu)" : " (Ei maksettu)"),
-                    Katuosoite = reader.GetString(6)
-                });
-            }
-        }
+                await connection.OpenAsync();
+                string query = @"
+                SELECT l.lasku_id, l.varaus_id, l.summa, l.alv, l.maksettu,
+                       CONCAT(a.etunimi, ' ', a.sukunimi) AS asiakasnimi, a.lahiosoite
+                FROM vn.lasku l
+                JOIN vn.varaus v ON l.varaus_id = v.varaus_id
+                JOIN vn.asiakas a ON v.asiakas_id = a.asiakas_id
+                ORDER BY l.lasku_id ASC";
 
-        laskutView.ItemsSource = laskut;
+                using var command = new MySqlCommand(query, connection);
+                using var reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    laskut.Add(new Lasku
+                    {
+                        LaskuId = reader.GetInt32(0),
+                        VarausId = reader.GetInt32(1),
+                        Summa = reader.GetDouble(2),
+                        Alv = reader.GetDouble(3),
+                        Maksettu = reader.GetBoolean(4),
+                        asiakasnimi = reader.GetString(5) + (reader.GetBoolean(4) ? " (Maksettu)" : " (Ei maksettu)"),
+                        Katuosoite = reader.GetString(6)
+                    });
+                }
+            }
+
+            laskutView.ItemsSource = laskut;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Virhe", $"Laskujen lataaminen epäonnistui:\n{ex.Message}", "OK");
+        }
     }
 
     /*private async void LoadVarausData()
@@ -131,6 +138,18 @@ public partial class LaskutusSivu : ContentPage
             return;
         }
 
+        if (summa > 99999999.99)
+        {
+            await DisplayAlert("Virhe", "Summa on liian suuri.", "OK");
+            return;
+        }
+
+        if (alv > 99999999.99)
+        {
+            await DisplayAlert("Virhe", "Summa on liian suuri.", "OK");
+            return;
+        }
+
         bool maksettu = MaksettuSwitch.IsToggled;
 
         DatabaseConnection dbc = new DatabaseConnection();
@@ -139,8 +158,8 @@ public partial class LaskutusSivu : ContentPage
             await connection.OpenAsync();
 
             string update = @"UPDATE vn.lasku 
-                              SET summa = @summa, alv = @alv, maksettu = @maksettu 
-                              WHERE lasku_id = @lasku_id";
+                          SET summa = @summa, alv = @alv, maksettu = @maksettu 
+                          WHERE lasku_id = @lasku_id";
 
             using var command = new MySqlCommand(update, connection);
             command.Parameters.AddWithValue("@summa", summa);
@@ -177,39 +196,46 @@ public partial class LaskutusSivu : ContentPage
             return;
         }
 
-        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string pdfFilePath = Path.Combine(documentsPath, $"Lasku_{valittuLasku.LaskuId}.pdf");
-
-        QuestPDF.Settings.License = LicenseType.Community;
-
-        Document.Create(container =>
+        try
         {
-            container.Page(page =>
-            {
-                page.Size(PageSizes.A4);
-                page.Header().Text("Lasku").SemiBold().FontSize(35);
-                page.Content().Column(x =>
-                {
-                    x.Spacing(10);
-                    x.Item().Text("Teille on lasku Village Newbies Oy:lta");
-                    x.Item().Text("Asiakasnimi: " + valittuLasku.asiakasnimi);
-                    x.Item().Text("Osoite: " + valittuLasku.Katuosoite);
-                    x.Item().Text("Laskun numero: " + valittuLasku.LaskuId);
-                    x.Item().Text("Varauksen numero: " + valittuLasku.VarausId);
-                    x.Item().Text("Laskun summa: " + valittuLasku.Summa.ToString("F2") + " €");
-                    x.Item().Text("Veron osuus: " + valittuLasku.Alv.ToString("F2") + " €");
-                    x.Item().Text("Viite: XXXXXXXXXXXX");
-                    x.Item().Text("Tilinumero: FIXXXXXXXXXXX");
-                    x.Item().Text("Päiväys: " + DateTime.Now.ToString("dd.MM.yyyy"));
-                });
-                page.Footer().AlignCenter().Text(x =>
-                {
-                    x.Span("Sivu ");
-                    x.CurrentPageNumber();
-                });
-            });
-        }).GeneratePdf(pdfFilePath);
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string pdfFilePath = Path.Combine(documentsPath, $"Lasku_{valittuLasku.LaskuId}.pdf");
 
-        await DisplayAlert("Tulostus", $"Lasku on tallennettu: {pdfFilePath}", "OK");
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Header().Text("Lasku").SemiBold().FontSize(35);
+                    page.Content().Column(x =>
+                    {
+                        x.Spacing(10);
+                        x.Item().Text("Teille on lasku Village Newbies Oy:lta");
+                        x.Item().Text("Asiakasnimi: " + valittuLasku.asiakasnimi);
+                        x.Item().Text("Osoite: " + valittuLasku.Katuosoite);
+                        x.Item().Text("Laskun numero: " + valittuLasku.LaskuId);
+                        x.Item().Text("Varauksen numero: " + valittuLasku.VarausId);
+                        x.Item().Text("Laskun summa: " + valittuLasku.Summa.ToString("F2") + " €");
+                        x.Item().Text("Veron osuus: " + valittuLasku.Alv.ToString("F2") + " €");
+                        x.Item().Text("Viite: XXXXXXXXXXXX");
+                        x.Item().Text("Tilinumero: FIXXXXXXXXXXX");
+                        x.Item().Text("Päiväys: " + DateTime.Now.ToString("dd.MM.yyyy"));
+                    });
+                    page.Footer().AlignCenter().Text(x =>
+                    {
+                        x.Span("Sivu ");
+                        x.CurrentPageNumber();
+                    });
+                });
+            }).GeneratePdf(pdfFilePath);
+
+            await DisplayAlert("Tulostus", $"Lasku on tallennettu: {pdfFilePath}", "OK");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Virhe", $"PDF:n luominen epäonnistui:\n{ex.Message}", "OK");
+        }
     }
 }
