@@ -132,6 +132,22 @@ public partial class LisaysSivu : ContentPage
     //Jos tiedot ovat tietokannassa ponnahdus ikkuna aukeaa ja kertoo.
     //Tämän jälkeen lisää kaikki tiedot mökkitauluun, alue_id ja postinro tulevat posti ja alue tauluista haettuina.
     //Mökkitaulun omat tiedot lisätään suoraan tekstikentistä.
+
+    private async Task<bool> IsPostinroValid(string postinro)
+    {
+        DatabaseConnection dbc = new DatabaseConnection();
+        using (var connection = dbc._getConnection())
+        {
+            connection.Open();
+            string query = "SELECT COUNT(*) FROM posti WHERE postinro = @postinro";
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@postinro", postinro);
+                var count = Convert.ToInt32(await command.ExecuteScalarAsync());
+                return count > 0;
+            }
+        }
+    }
     private async void LisaysNappi(object sender, EventArgs e)
     {
         if (Mokkinimi.Text == null || Mokkinimi.Text == string.Empty)
@@ -307,29 +323,73 @@ public partial class LisaysSivu : ContentPage
             {
                 connection.Open();
 
-                string PaivitaMokki = "UPDATE vn.mokki SET postinro = @postinro, mokkinimi = @mokkinimi, katuosoite = @katuosoite, hinta = @hinta, kuvaus = @kuvaus, henkilomaara = @henkilomaara, alue_id = (SELECT alue_id FROM vn.alue WHERE nimi = @nimi) WHERE mokki_id = @MokkiID;";
-
-                using (var Command = new MySqlCommand(PaivitaMokki, connection))
+                string aluetarkistus = "SELECT COUNT(*) FROM vn.alue WHERE nimi = @nimi;";
+                using (var command = new MySqlCommand(aluetarkistus, connection))
                 {
-                    Command.Parameters.AddWithValue("@MokkiID", int.Parse(mokkiID.Text));
-                    Command.Parameters.AddWithValue("@mokkinimi", mokkinimi);
-                    Command.Parameters.AddWithValue("@katuosoite", katuosoite);
-                    Command.Parameters.AddWithValue("@postinro", postinro);
-                    Command.Parameters.AddWithValue("@kuvaus", kuvaus);
-                    Command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
-                    Command.Parameters.AddWithValue("@hinta", hinta);
-                    Command.Parameters.AddWithValue("@nimi", HiddenEntry3.Text);
-                    await Command.ExecuteNonQueryAsync();
+                    command.Parameters.AddWithValue("@nimi", nimi);
+                    int count = Convert.ToInt32(await command.ExecuteScalarAsync());
 
-                    var updatedMokki = MokkiList.FirstOrDefault(m => m.MokkiID == int.Parse(mokkiID.Text));
-                    if (updatedMokki != null)
+                    if (count > 0)
                     {
-                        updatedMokki.Mokkinimi = mokkinimi;
-                        updatedMokki.Katuosoite = katuosoite;
-                        updatedMokki.Postinro = postinro;
-                        updatedMokki.Hinta = hinta;
-                        updatedMokki.Kuvaus = kuvaus;
-                        updatedMokki.Henkilomaara = henkilomaara;
+                        await DisplayAlert("Oho", "Alue on jo olemassa, käytetään olemassa olevaa tietoa.", "Ok");
+                    }
+                    else if (count == 0)
+                    {
+                        string addAlue = "INSERT INTO vn.alue (nimi) VALUES (@nimi);";
+                        using (var insertCommand = new MySqlCommand(addAlue, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@nimi", nimi);
+                            await insertCommand.ExecuteNonQueryAsync();
+                        }
+                    }
+
+                }
+                string postinroTarkistus = "SELECT COUNT(*) from vn.posti where postinro = @postinro;";
+                using (var command = new MySqlCommand(postinroTarkistus, connection))
+                {
+                    command.Parameters.AddWithValue("@postinro", postinro);
+                    int count = Convert.ToInt32(await command.ExecuteScalarAsync());
+
+                    if (count > 0)
+                    {
+                        await DisplayAlert("Oho", "Postinumero on jo kannassa, käytetään olevaa tietoa", "ok");
+                    }
+                    else if (count == 0)
+                    {
+                        string addPostinro = "INSERT INTO vn.posti (postinro, toimipaikka) VALUES (@postinro, @toimipaikka);";
+                        using (var insertCommand = new MySqlCommand(addPostinro, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@postinro", postinro);
+                            insertCommand.Parameters.AddWithValue("@toimipaikka", toimipaikka);
+                            await insertCommand.ExecuteNonQueryAsync();
+                        }
+
+
+                        string PaivitaMokki = "UPDATE vn.mokki SET postinro = @postinro, mokkinimi = @mokkinimi, katuosoite = @katuosoite, hinta = @hinta, kuvaus = @kuvaus, henkilomaara = @henkilomaara, alue_id = (SELECT alue_id FROM vn.alue WHERE nimi = @nimi) WHERE mokki_id = @MokkiID;";
+
+                        using (var Command = new MySqlCommand(PaivitaMokki, connection))
+                        {
+                            Command.Parameters.AddWithValue("@MokkiID", int.Parse(mokkiID.Text));
+                            Command.Parameters.AddWithValue("@mokkinimi", mokkinimi);
+                            Command.Parameters.AddWithValue("@katuosoite", katuosoite);
+                            Command.Parameters.AddWithValue("@postinro", postinro);
+                            Command.Parameters.AddWithValue("@kuvaus", kuvaus);
+                            Command.Parameters.AddWithValue("@henkilomaara", henkilomaara);
+                            Command.Parameters.AddWithValue("@hinta", hinta);
+                            Command.Parameters.AddWithValue("@nimi", HiddenEntry3.Text);
+                            await Command.ExecuteNonQueryAsync();
+
+                            var updatedMokki = MokkiList.FirstOrDefault(m => m.MokkiID == int.Parse(mokkiID.Text));
+                            if (updatedMokki != null)
+                            {
+                                updatedMokki.Mokkinimi = mokkinimi;
+                                updatedMokki.Katuosoite = katuosoite;
+                                updatedMokki.Postinro = postinro;
+                                updatedMokki.Hinta = hinta;
+                                updatedMokki.Kuvaus = kuvaus;
+                                updatedMokki.Henkilomaara = henkilomaara;
+                            }
+                        }
                     }
                 }
             }
